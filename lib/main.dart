@@ -6,7 +6,9 @@ import 'package:flutter_gen/gen_l10n/app_localization.dart';
 
 bool? localizationval;
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   localizationval = await SharedPreferenceService().getdata();
+  debugPrint(localizationval.toString());
 
   runApp(const MyApp());
 }
@@ -26,13 +28,15 @@ class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
   Locale? _locale;
   setlocal(Locale locale) {
-    setState(() {
-      if (localizationval == true) {
-        _locale = Locale('no');
-      } else {
-        _locale = Locale('en');
-      }
-    });
+    setState(() {});
+  }
+
+  Locale checkLang() {
+    if (localizationval == true) {
+      return _locale = const Locale("no");
+    } else {
+      return _locale = const Locale("en");
+    }
   }
 
   @override
@@ -50,8 +54,8 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      locale: _locale,
-      home: SplashScreen(),
+      locale: checkLang(),
+      home: const SplashScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
