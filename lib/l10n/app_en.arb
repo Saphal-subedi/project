@@ -1,0 +1,42 @@
+{
+    "@@locale":"en",
+
+
+
+    "name":"Nagarjuna",
+    "district":"Kathmandu",
+     "viewmore":"view More",
+    "departments":"Departments",
+   
+    
+    "administration":"Administration",
+    "education" : "Education",
+   "health" : "Health",
+   "notice" : "Notice",
+   "financialService" : "Financial services",
+   "environment" :"Environment",
+   "urbanManagement" : "Urban\nManagement",
+   "laws" :"Law & Human\nRights",
+   
+
+
+   "connect":"Connect",
+   "contactMayor" : "Contact Mayor",
+   "suggestions" : "Suggestions",
+   "queries" : "Queries",
+
+
+
+
+   "services":"Services",
+   "birthRegistration" : "Birth Registration",
+   "marriageRegristration" : "Marriage Registration",
+   "deathRegristration" : "Death Registration",
+   "taxPayment" : "Tax  payment",
+   "helplineNumber" : "Helpline Number",
+   "wardInfo" : "Ward Info",
+   "tourismSite" : "Tourism Site",
+   "esifarish" : "e-sifarish",
+   "publicforum" : "Public Forum"
+
+}

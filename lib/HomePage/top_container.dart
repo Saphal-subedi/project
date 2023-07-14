@@ -1,5 +1,5 @@
-import 'package:e_woda/HomePage/string_value/top_container.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localization.dart';
 
 class TopContainer extends StatelessWidget {
   const TopContainer({super.key});
@@ -12,8 +12,8 @@ class TopContainer extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: height * 0.1,
-      decoration: BoxDecoration(
-        color: Colors.blue,
+      decoration: const BoxDecoration(
+        color: Color(0xFF66D47E),
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(20.0),
           bottomRight: Radius.circular(20.0),
@@ -21,15 +21,21 @@ class TopContainer extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            "${WardInfo.wodaName}",
-            style: TextStyle(fontSize: 12.0, fontWeight: FontWeight.w900),
+            AppLocalizations.of(context)!.name,
+            style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w900),
           ),
           Text(
-            "${WardInfo.districtName}",
-            style: TextStyle(fontSize: 8.0, fontWeight: FontWeight.w900),
+            AppLocalizations.of(context)!.district,
+            style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w900),
           ),
+          const Text(
+            "2080/06/15 Sunday",
+            style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w900),
+          ),
+
           // Consumer<DateTimeModel>(
           //       builder: (context, counterModel, child) {
           //         return Text(

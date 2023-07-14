@@ -1,5 +1,5 @@
-import 'package:e_woda/HomePage/apptitle_department.dart';
-import 'package:e_woda/app_image.dart';
+import 'package:e_woda/Department/apptitle_department.dart';
+import 'package:e_woda/Department/app_image.dart';
 
 class ImageString {
   String images;
@@ -19,3 +19,7 @@ List<ImageString> imgString = [
       images: AppImage.urbanManagement, title: Apptitle.urbanManagement),
   ImageString(images: AppImage.laws, title: Apptitle.laws),
 ];
+
+class DepartmentTitle {
+  static const String title = "Department";
+}

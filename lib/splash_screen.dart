@@ -13,12 +13,12 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Future.delayed(
-      const Duration(seconds: 2),
+      const Duration(seconds: 6),
       () {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => HomePage(),
+            builder: (context) => const HomePage(),
           ),
         );
       },
@@ -46,7 +46,7 @@ class _SplashScreenState extends State<SplashScreen> {
         ),
         child: const Center(
           child: Image(
-            image: AssetImage("assets/images/health.png"),
+            image: AssetImage("assets/images/kathmandu-logo.jpg"),
             height: 200,
             width: 200,
           ),

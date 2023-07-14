@@ -1,0 +1,41 @@
+{
+    "@@locale":"no",
+
+
+
+    "name":"नागार्जुन",
+    "district":"काठमाडौं",
+    "viewmore":"अझ धेरै हेर्नुहोस्",
+
+
+    "departments":"विभागहरू",
+    
+    "administration":"प्रशासन",
+    "education" : "शिक्षा",
+   "health" : "स्वास्थ्य",
+   "notice" : "सूचना",
+   "financialService" : "वित्तीय सेवाहरू",
+   "environment" :"पर्यावरण",
+   "urbanManagement" : "शहरी व्यवस्थापन",
+   "laws" :"कानून र मानव अधिकार",
+   
+
+
+   "connect":"जडान गर्नुहोस्",
+   "contactMayor" : "मेयरलाई सम्पर्क",
+   "suggestions" : "सुझावहरू",
+   "queries" : "प्रश्नहरू",
+
+
+   "services":"सेवाहरू",
+   "birthRegistration" : "जन्म दर्ता",
+   "marriageRegristration" : "विवाह दर्ता",
+   "deathRegristration" : "मृत्यु दर्ता",
+   "taxPayment" : "कर भुक्तानी",
+   "helplineNumber" : "हेल्पलाइन नम्बर",
+   "wardInfo" : "वार्ड जानकारी",
+   "tourismSite" : "पर्यटन स्थल",
+   "esifarish" : "इ-सिफारिस",
+   "publicforum" : "सार्वजनिक फोरम"
+
+}
