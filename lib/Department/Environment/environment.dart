@@ -1,7 +1,6 @@
 import 'package:e_woda/Common/custom_appbar.dart';
 import 'package:flutter/material.dart';
 
-import '../apptitle_department.dart';
 import 'package:flutter_gen/gen_l10n/app_localization.dart';
 
 class Environment extends StatelessWidget {

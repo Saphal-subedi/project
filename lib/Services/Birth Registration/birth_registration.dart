@@ -1,4 +1,3 @@
-import 'package:e_woda/Services/apptitle_services.dart';
 import 'package:flutter/material.dart';
 
 import '../../Common/custom_appbar.dart';
@@ -19,27 +18,19 @@ class BirthRegistration extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          const Text(
-            "Required document for birth registration",
+          Text(
+            AppLocalizations.of(context)!.birth_title,
             style: TextStyle(
                 fontSize: 14.0, fontWeight: FontWeight.w600, color: Colors.red),
           ),
           const SizedBox(height: 10.0),
-          UnorderedListItem(
-              itemText:
-                  "Proof of Birth: This can include documents such as a hospital-issued birth certificate, maternity record, or any other document that verifies the birth of the child."),
+          UnorderedListItem(itemText: AppLocalizations.of(context)!.itemone),
           const SizedBox(height: 10.0),
-          UnorderedListItem(
-              itemText:
-                  "Parent's Identification Documents: The identification documents of both parents, such as citizenship certificates, passports, or other valid identification papers."),
+          UnorderedListItem(itemText: AppLocalizations.of(context)!.itemtwo),
           const SizedBox(height: 10.0),
-          UnorderedListItem(
-              itemText:
-                  "Citizenship Certificate of Parents: The citizenship certificates of both parents."),
+          UnorderedListItem(itemText: AppLocalizations.of(context)!.itemthree),
           const SizedBox(height: 10.0),
-          UnorderedListItem(
-              itemText:
-                  "Affidavit of Birth: In cases where the birth was not registered immediately or there is a delay, an affidavit explaining the reason for the delay may be required."),
+          UnorderedListItem(itemText: AppLocalizations.of(context)!.itemfour),
         ]),
       ),
     );

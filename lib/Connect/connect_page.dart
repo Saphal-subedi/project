@@ -1,6 +1,5 @@
 import 'package:e_woda/Connect/Queries/queries_page.dart';
 import 'package:e_woda/Connect/Suggestion/suggestion_page.dart';
-import 'package:e_woda/Connect/connect_localization.dart';
 
 import 'package:flutter/material.dart';
 

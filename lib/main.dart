@@ -3,12 +3,19 @@ import 'package:e_woda/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:localization/localization.dart';
 import 'package:flutter_gen/gen_l10n/app_localization.dart';
+import 'firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 bool? localizationval;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   localizationval = await SharedPreferenceService().getdata();
   debugPrint(localizationval.toString());
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   runApp(const MyApp());
 }
@@ -55,6 +62,13 @@ class _MyAppState extends State<MyApp> {
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       locale: checkLang(),
+      theme: ThemeData(
+        primaryColor: Colors.red,
+        appBarTheme: AppBarTheme(
+          elevation: 2.0,
+          backgroundColor: Colors.orange,
+        ),
+      ),
       home: const SplashScreen(),
       debugShowCheckedModeBanner: false,
     );

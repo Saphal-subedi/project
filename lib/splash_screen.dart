@@ -28,28 +28,40 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    final size = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Container(
-        padding: const EdgeInsets.all(20),
-        height: size.height,
-        width: size.width,
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Colors.red,
-              Colors.blue,
-            ],
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-          ),
+        height: 1 * size,
+        width: double.infinity,
+        decoration: BoxDecoration(
+          color: Colors.blue.shade300,
         ),
-        child: const Center(
-          child: Image(
-            image: AssetImage("assets/images/kathmandu-logo.jpg"),
-            height: 200,
-            width: 200,
-          ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Image(
+              image: AssetImage("assets/images/kathmandu-logo.jpg"),
+              height: 200,
+              width: 200,
+            ),
+            SizedBox(height: 20.0),
+            Text(
+              "नागार्जुन",
+              style: TextStyle(
+                fontSize: 35.0,
+                color: Colors.white,
+              ),
+            ),
+            SizedBox(height: 10.0),
+            Text(
+              "नगरपालिका",
+              style: TextStyle(
+                fontSize: 35.0,
+                color: Colors.white,
+              ),
+            ),
+          ],
         ),
       ),
     );

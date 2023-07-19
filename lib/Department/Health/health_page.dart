@@ -1,7 +1,6 @@
 import 'package:e_woda/Common/custom_appbar.dart';
 import 'package:flutter/material.dart';
 
-import '../apptitle_department.dart';
 import 'package:flutter_gen/gen_l10n/app_localization.dart';
 
 class Health extends StatelessWidget {
@@ -17,8 +16,8 @@ class Health extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            const Text(
-              "The following doctors are currently available",
+            Text(
+              AppLocalizations.of(context)!.health_title,
               style: TextStyle(color: Colors.red),
             ),
             ListView.separated(
@@ -27,17 +26,17 @@ class Health extends StatelessWidget {
                   return Card(
                     color: Colors.green,
                     child: ListTile(
-                      leading: const Text("Doctor Name "),
+                      leading: Text(AppLocalizations.of(context)!.doctorname),
                       title: Column(
                         children: [
-                          const Text("Contact Number"),
+                          Text(AppLocalizations.of(context)!.contactno),
                           const SizedBox(height: 10.0),
-                          const Text("specialist On")
+                          Text(AppLocalizations.of(context)!.specialist_On)
                         ],
                       ),
                       trailing: TextButton(
-                        child: const Text(
-                          "Message",
+                        child: Text(
+                          AppLocalizations.of(context)!.message,
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 15.0,

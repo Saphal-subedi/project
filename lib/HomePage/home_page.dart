@@ -3,7 +3,9 @@ import 'package:e_woda/Department/department_page.dart';
 import 'package:e_woda/HomePage/top_container.dart';
 import 'package:e_woda/Services/services_page.dart';
 import 'package:e_woda/Shared%20Preferences/shared_preferences_services.dart';
+import 'package:e_woda/User%20Register%20Page/register_user.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localization.dart';
 
 import 'drawer_page.dart';
 
@@ -31,25 +33,27 @@ class _HomePageState extends State<HomePage> {
     final height = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      appBar:
-
-          //PreferredSize(
-          //  child: CustomAppBar(), preferredSize: Size.fromHeight(0.2 * height)),
-
-          AppBar(
-        elevation: 0.0,
-        backgroundColor: const Color(0xFF66D47E),
+      appBar: AppBar(
         actions: [
-          const Spacer(),
-          CircleAvatar(
-            backgroundColor: Colors.green,
-            radius: 20,
-            child: Image.asset(
-              "assets/images/ward info.png",
-              fit: BoxFit.fitHeight,
-            ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+            child: CircleAvatar(
+                backgroundColor: Colors.orange,
+                child: IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => RegisterUser()));
+                    },
+                    icon: Icon(Icons.person))),
           ),
         ],
+        title: Text(AppLocalizations.of(context)!.name),
+        centerTitle: true,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(color: Colors.blue.shade300),
+        ),
       ),
       body: SafeArea(
         child: SingleChildScrollView(

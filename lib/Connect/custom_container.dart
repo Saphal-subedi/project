@@ -1,4 +1,3 @@
-import 'package:e_woda/Department/departments_localiation.dart';
 import 'package:flutter/material.dart';
 
 import 'connect_localization.dart';

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "497968049454",
+    "project_id": "ewoda-1b55d",
+    "storage_bucket": "ewoda-1b55d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:497968049454:android:473d878e2912119506debf",
+        "android_client_info": {
+          "package_name": "com.example.e_woda"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "497968049454-7do8vq8o7b07inkdmnoimfo6cjclihur.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4pkcGlc7g4iRizIidhta4YS9TWPtEtE4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "497968049454-7do8vq8o7b07inkdmnoimfo6cjclihur.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
