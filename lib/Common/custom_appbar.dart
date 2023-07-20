@@ -9,6 +9,11 @@ class NavigateAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            color: Colors.blue.shade300,
+          ),
+        ),
         title: Text(title),
         centerTitle: true,
         leading: IconButton(

@@ -2,6 +2,16 @@
     "@@locale":"en",
 
 
+    "validateformstring":"validateformstring",
+      "usernamevalidate":"Please enter a valid name",
+      "phonevalidate":"Please enter a valid number",
+      "emailvalidate":"Please enter a valid email address",
+      "passwordvalidate":"Password must be at least eight characters long",
+
+
+
+
+
 
     "name":"Nagarjuna",
     "district":"Kathmandu",
@@ -12,6 +22,11 @@
     "administration":"Administration",
     "education" : "Education",
    "health" : "Health",
+            "health_title":"The following doctors are currently available",
+            "doctorname":"Doctor Name",
+            "contactno":"Contact Number",
+            "specialist_On":"specialist On",
+            "message":"Message",
    "notice" : "Notice",
    "financialService" : "Financial services",
    "environment" :"Environment",
@@ -22,21 +37,61 @@
 
    "connect":"Connect",
    "contactMayor" : "Contact Mayor",
+                  "itemonecontact":"Personal Information: Contact mayor systems typically store personal information about the mayors or local representatives, such as their full name, address, contact details (phone number, email), and other identifying information.",
+                  "itemtwocontact":"Meeting and Event Information: Some contact mayor systems may also store information about upcoming meetings, events, or town hall sessions organized by the mayor. This helps citizens stay informed about public engagements and participate in relevant events.",
+                  "itemthreecontact":"Communication History: Contact mayor systems often maintain a record of communication between citizens and the mayor. This can include logs of emails, messages, or phone calls exchanged between the mayor and constituents. It helps track interactions, address citizen concerns, and maintain a history of communication for reference.",
+                  
    "suggestions" : "Suggestions",
    "queries" : "Queries",
 
 
 
 
-   "services":"Services",
+   "services":"Ward Services",
    "birthRegistration" : "Birth Registration",
+                       "birth_title":"Required document for birth registration",
+                       "itemone":"Proof of Birth: This can include documents such as a hospital-issued birth certificate, maternity record, or any other document that verifies the birth of the child",
+                       "itemtwo":"Parent's Identification Documents: The identification documents of both parents, such as citizenship certificates, passports, or other valid identification papers.",
+                       "itemthree":"Citizenship Certificate of Parents: The citizenship certificates of both parents.",
+                       "itemfour":"Affidavit of Birth: In cases where the birth was not registered immediately or there is a delay, an affidavit explaining the reason for the delay may be required.",
+
    "marriageRegristration" : "Marriage Registration",
    "deathRegristration" : "Death Registration",
-   "taxPayment" : "Tax  payment",
+   "taxPayment" : "Tax payment",
    "helplineNumber" : "Helpline Number",
    "wardInfo" : "Ward Info",
    "tourismSite" : "Tourism Site",
    "esifarish" : "e-sifarish",
-   "publicforum" : "Public Forum"
+   "publicforum" : "Public Forum",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   "registerUser":"Register Page",
+   "userName":"User Name",
+   "userBloodGroup":"User BloodGroup",
+   "phone":"Phone",
+    "userEmail":"User Email",
+   "userPassword":"User Password",
+   "registerButton":"Register",
+   "alreadyHaveAnAccount":"Already have an account",
+   "login":"Login",
+   "createuser":"Create User"
+   
+  
 
 }

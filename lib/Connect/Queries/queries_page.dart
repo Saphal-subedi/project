@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:e_woda/Common/custom_appbar.dart';
-import 'package:e_woda/Connect/apptitle_connect.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localization.dart';
 

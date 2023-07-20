@@ -59,17 +59,6 @@ class Department extends StatelessWidget {
                     const Spacer(),
                     GestureDetector(
                       child: CustomImageTitle(
-                          index: 1, title: applocalization!.education),
-                      onTap: (() {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const Education()));
-                      }),
-                    ),
-                    const Spacer(),
-                    GestureDetector(
-                      child: CustomImageTitle(
                           index: 2, title: applocalization!.health),
                       onTap: (() {
                         Navigator.push(
@@ -101,12 +90,6 @@ class Department extends StatelessWidget {
                       }),
                     ),
                     const Spacer(),
-                  ],
-                ),
-                const SizedBox(height: 20.0),
-                Row(
-                  children: [
-                    const Spacer(),
                     GestureDetector(
                       child: CustomImageTitle(
                           index: 4, title: applocalization!.financialService),
@@ -116,6 +99,23 @@ class Department extends StatelessWidget {
                             MaterialPageRoute(
                                 builder: (context) =>
                                     const FinancialServices()));
+                      }),
+                    ),
+                    const Spacer(),
+                  ],
+                ),
+                const SizedBox(height: 20.0),
+                Row(
+                  children: [
+                    const Spacer(),
+                    GestureDetector(
+                      child: CustomImageTitle(
+                          index: 1, title: applocalization!.education),
+                      onTap: (() {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Education()));
                       }),
                     ),
                     const Spacer(),
