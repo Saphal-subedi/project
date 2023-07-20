@@ -1,10 +1,13 @@
+import 'package:e_woda/Common/custom_snackbar.dart';
+import 'package:e_woda/Common/datetime_picker.dart';
 import 'package:e_woda/respository/pdf_downloader.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 class PDFViewer extends StatelessWidget {
-  const PDFViewer({super.key, required this.url});
+  PDFViewer({super.key, required this.url});
   final String url;
+  final PdfViewerController controller = PdfViewerController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,6 +32,11 @@ class PDFViewer extends StatelessWidget {
       body: SfPdfViewer.network(
         url,
         enableDocumentLinkAnnotation: false,
+        controller: controller,
+        pageSpacing: 20,
+        onDocumentLoadFailed: (PdfDocumentLoadFailedDetails details) {
+          CustomSnackBar(context: context, message: details.error);
+        },
       ),
     );
   }
