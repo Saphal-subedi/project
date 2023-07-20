@@ -3,7 +3,7 @@ import 'package:e_woda/features/Suggestion/suggestion_page.dart';
 
 import 'package:flutter/material.dart';
 
-import '../features/ContactMayor/contact_mayor.dart';
+import '../ContactMayor/contact_mayor.dart';
 import 'custom_container.dart';
 import 'package:flutter_gen/gen_l10n/app_localization.dart';
 

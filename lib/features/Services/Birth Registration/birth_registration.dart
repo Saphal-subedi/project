@@ -1,3 +1,5 @@
+import 'package:e_woda/Common/button.dart';
+import 'package:e_woda/core/routes/routes_string.dart';
 import 'package:flutter/material.dart';
 
 import '../../../Common/custom_appbar.dart';
@@ -31,6 +33,18 @@ class BirthRegistration extends StatelessWidget {
           UnorderedListItem(itemText: AppLocalizations.of(context)!.itemthree),
           const SizedBox(height: 10.0),
           UnorderedListItem(itemText: AppLocalizations.of(context)!.itemfour),
+          const SizedBox(
+            height: 100,
+          ),
+          Center(
+            child: CustomButton(
+                title: "Fill online Birth form",
+                color: Colors.blue,
+                ontap: () {
+                  Navigator.pushNamed(context, RouteString.birthInformForm);
+                },
+                titleColor: Colors.white),
+          )
         ]),
       ),
     );

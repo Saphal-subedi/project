@@ -1,13 +1,13 @@
-import 'package:e_woda/Connect/connect_page.dart';
+import 'package:e_woda/features/Connect/connect_page.dart';
 import 'package:e_woda/features/Department/department_page.dart';
-import 'package:e_woda/features/HomePage/top_container.dart';
+import 'package:e_woda/features/HomePage/widgets/top_container.dart';
 import 'package:e_woda/features/Services/services_page.dart';
 import 'package:e_woda/Shared%20Preferences/shared_preferences_services.dart';
 import 'package:e_woda/features/authentication/User%20Register%20Page/register_user.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localization.dart';
 
-import 'drawer_page.dart';
+import 'widgets/drawer_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

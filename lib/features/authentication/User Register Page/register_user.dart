@@ -1,12 +1,12 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:e_woda/Common/custom_appbar.dart';
-import 'package:e_woda/Firebase%20Firestore/firebase_firestore_service.dart';
+import 'package:e_woda/firebase_services/Firebase%20Firestore/firebase_firestore_service.dart';
 import 'package:e_woda/Common/custom_snackbar.dart';
 import 'package:e_woda/features/authentication/User%20Login%20Page/login_user_page.dart';
 import 'package:e_woda/features/authentication/User%20Register%20Page/Drop%20Down%20Menu/drop_down_menu.dart';
-import 'package:e_woda/features/authentication/User%20Register%20Page/custom_textformfield.dart';
-import 'package:e_woda/features/authentication/User%20Register%20Page/register_user_model.dart';
+import 'package:e_woda/Common/custom_textformfield.dart';
+import 'package:e_woda/models/register_user_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localization.dart';
 

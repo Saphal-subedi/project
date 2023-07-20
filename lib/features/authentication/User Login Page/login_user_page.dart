@@ -1,5 +1,5 @@
 import 'package:e_woda/Common/custom_appbar.dart';
-import 'package:e_woda/features/authentication/User%20Register%20Page/custom_textformfield.dart';
+import 'package:e_woda/Common/custom_textformfield.dart';
 import 'package:e_woda/features/authentication/User%20Register%20Page/register_user.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localization.dart';
