@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 
 class NavigateAppBar extends StatelessWidget {
-  NavigateAppBar({super.key, required this.title});
-  String title;
+  const NavigateAppBar({super.key, required this.title});
+  final String title;
 
   @override
   Widget build(BuildContext context) {

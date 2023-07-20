@@ -1,10 +1,8 @@
+import 'package:e_woda/features/Department/departments_localiation.dart';
 import 'package:flutter/material.dart';
 
-import 'connect_localization.dart';
-
-class CustomImageTitleConnect extends StatelessWidget {
-  const CustomImageTitleConnect(
-      {super.key, required this.index, required this.title});
+class CustomImageTitle extends StatelessWidget {
+  const CustomImageTitle({super.key, required this.index, required this.title});
   final int index;
   final String title;
 
@@ -27,11 +25,11 @@ class CustomImageTitleConnect extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 SizedBox(
-                  height: 0.11 * height,
-                  width: 0.20 * width,
+                  height: 0.06 * height,
+                  width: 0.15 * width,
                   child: Center(
                     child: Image.asset(
-                      connectString[index].images,
+                      imgString[index].images,
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -40,13 +38,16 @@ class CustomImageTitleConnect extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 10.0),
-          Text(
-            title,
-            style: const TextStyle(
-              fontSize: 12.0,
-              fontWeight: FontWeight.w400,
+          SizedBox(
+            height: 30.0,
+            child: Text(
+              title,
+              style: const TextStyle(
+                fontSize: 12.0,
+                fontWeight: FontWeight.w400,
+              ),
+              textAlign: TextAlign.center,
             ),
-            textAlign: TextAlign.center,
           ),
         ],
       ),

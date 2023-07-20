@@ -1,9 +1,9 @@
-import 'package:e_woda/Connect/Queries/queries_page.dart';
-import 'package:e_woda/Connect/Suggestion/suggestion_page.dart';
+import 'package:e_woda/features/Queries/queries_page.dart';
+import 'package:e_woda/features/Suggestion/suggestion_page.dart';
 
 import 'package:flutter/material.dart';
 
-import 'ContactMayor/contact_mayor.dart';
+import '../features/ContactMayor/contact_mayor.dart';
 import 'custom_container.dart';
 import 'package:flutter_gen/gen_l10n/app_localization.dart';
 
@@ -12,7 +12,7 @@ class Connect extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
+    //  final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     final applocalization = AppLocalizations.of(context);
     return Padding(
@@ -33,7 +33,7 @@ class Connect extends StatelessWidget {
                   padding: EdgeInsets.fromLTRB(0.07 * width, 0, 0, 10),
                   child: Text(
                     applocalization!.connect,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 20.0,
                       fontWeight: FontWeight.w500,
                     ),
@@ -44,7 +44,7 @@ class Connect extends StatelessWidget {
                     const Spacer(),
                     GestureDetector(
                       child: CustomImageTitleConnect(
-                          index: 0, title: applocalization!.contactMayor),
+                          index: 0, title: applocalization.contactMayor),
                       onTap: () {
                         Navigator.push(
                             context,
@@ -54,25 +54,25 @@ class Connect extends StatelessWidget {
                     ),
                     const Spacer(),
                     GestureDetector(
-                      child: CustomImageTitleConnect(
-                          index: 1, title: applocalization!.suggestions),
                       onTap: (() {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => const Suggestions()));
                       }),
+                      child: CustomImageTitleConnect(
+                          index: 1, title: applocalization.suggestions),
                     ),
                     const Spacer(),
                     GestureDetector(
-                      child: CustomImageTitleConnect(
-                          index: 2, title: applocalization!.queries),
                       onTap: (() {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => const Queries()));
                       }),
+                      child: CustomImageTitleConnect(
+                          index: 2, title: applocalization.queries),
                     ),
                     const Spacer(),
                   ],

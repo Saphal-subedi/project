@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'HomePage/home_page.dart';
+import 'features/HomePage/home_page.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -36,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
         decoration: BoxDecoration(
           color: Colors.blue.shade300,
         ),
-        child: Column(
+        child: const Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [

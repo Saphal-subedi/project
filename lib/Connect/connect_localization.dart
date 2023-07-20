@@ -1,7 +1,7 @@
 import 'package:e_woda/Connect/app_image.dart';
 import 'package:e_woda/Connect/apptitle_connect.dart';
 
-import '../Department/departments_localiation.dart';
+import '../features/Department/departments_localiation.dart';
 
 List<ImageString> connectString = [
   ImageString(

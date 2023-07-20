@@ -33,6 +33,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
+  // ignore: unused_field
   Locale? _locale;
   setlocal(Locale locale) {
     setState(() {});
@@ -52,7 +53,7 @@ class _MyAppState extends State<MyApp> {
     //   providers: [
     //     //  Provider<DateTimeModel>(create: (_) => DateTimeModel()),
     //   ],
-    
+
     //   child: MaterialApp(
     //     home: SplashScreen(),
     //     debugShowCheckedModeBanner: false,
@@ -65,7 +66,7 @@ class _MyAppState extends State<MyApp> {
       locale: checkLang(),
       theme: ThemeData(
         primaryColor: Colors.red,
-        appBarTheme: AppBarTheme(
+        appBarTheme: const AppBarTheme(
           elevation: 2.0,
           backgroundColor: Colors.orange,
         ),
