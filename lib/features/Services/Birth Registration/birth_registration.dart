@@ -38,6 +38,22 @@ class BirthRegistration extends StatelessWidget {
           ),
           Center(
             child: CustomButton(
+                title: "View Form",
+                color: Colors.blue,
+                ontap: () {
+                  Navigator.pushNamed(context, RouteString.pdfViewer,
+                      arguments: {
+                        "url":
+                            "https://drive.google.com/uc?export=view&id=1IuZEwRiN7rTmSSPaTNTGO0Bv0-jdO7kY"
+                      });
+                },
+                titleColor: Colors.white),
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          Center(
+            child: CustomButton(
                 title: "Fill online Birth form",
                 color: Colors.blue,
                 ontap: () {

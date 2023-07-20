@@ -1,5 +1,6 @@
 import 'package:e_woda/core/routes/routes_string.dart';
 import 'package:e_woda/features/authentication/User%20Login%20Page/login_user_page.dart';
+import 'package:e_woda/features/pdf_viewer/pdf_viewer.dart';
 import 'package:flutter/material.dart';
 
 import '../../features/Services/Birth Registration/widget/birth_info_form.dart';
@@ -12,6 +13,11 @@ class AppRoutes {
 
       case RouteString.birthInformForm:
         return MaterialPageRoute(builder: (context) => const BirthInfoForm());
+
+      case RouteString.pdfViewer:
+        var args = settings.arguments as Map;
+        return MaterialPageRoute(
+            builder: (context) => PDFViewer(url: args["url"]));
 
       default:
         return MaterialPageRoute(builder: (context) {
