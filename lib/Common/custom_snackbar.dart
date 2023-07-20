@@ -1,18 +1,11 @@
 import 'package:flutter/material.dart';
 
-class CustomSnackBar {
-  CustomSnackBar({required this.context, required this.message});
-  final BuildContext context;
-  String message;
-
-  void snackbar() {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-          content: Text(message),
-          backgroundColor: Colors.red,
-          duration: const Duration(seconds: 3),
-          shape: const StadiumBorder(),
-          behavior: SnackBarBehavior.floating),
-    );
-  }
+customSnackbar(BuildContext context, String message) {
+  final snackBar = SnackBar(
+      content: Text(message),
+      backgroundColor: Colors.red,
+      duration: const Duration(seconds: 3),
+      shape: const StadiumBorder(),
+      behavior: SnackBarBehavior.floating);
+  return ScaffoldMessenger.of(context).showSnackBar(snackBar);
 }
