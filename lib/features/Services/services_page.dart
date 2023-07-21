@@ -1,18 +1,6 @@
-<<<<<<< HEAD:lib/Services/services_page.dart
-import 'package:e_woda/New%20Home%20Page/Emergency%20Services/Hepline%20Number/helpline_number_page.dart';
-import 'package:e_woda/Services/TaxPayment/tax_payment_page.dart';
-import 'package:e_woda/Services/more_services.dart';
-import 'package:e_woda/Services/services_localization.dart';
-import 'package:e_woda/New%20Home%20Page/Woda%20List/woda_page.dart';
-=======
-import 'package:e_woda/features/Services/Hepline%20Number/helpline_number_page.dart';
-import 'package:e_woda/features/Services/TaxPayment/tax_payment_page.dart';
-import 'package:e_woda/features/Services/more_services.dart';
-
->>>>>>> 33199bb4326b88636056f8972d9b98c9865841e9:lib/features/Services/services_page.dart
 import 'package:flutter/material.dart';
 
-import 'Birth Registration/birth_registration.dart';
+import '../../New Home Page/Woda List/woda_page.dart';
 import 'custom_container.dart';
 import 'package:flutter_gen/gen_l10n/app_localization.dart';
 

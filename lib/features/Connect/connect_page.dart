@@ -1,18 +1,9 @@
-<<<<<<< HEAD:lib/Connect/connect_page.dart
 import 'package:e_woda/New%20Home%20Page/Administrative%20Solutions/Queries/queries_page.dart';
-import 'package:e_woda/Connect/Suggestion/suggestion_page.dart';
-
-import 'package:flutter/material.dart';
-
-import '../New Home Page/Administrative Solutions/ContactMayor/contact_mayor.dart';
-=======
-import 'package:e_woda/features/Queries/queries_page.dart';
 import 'package:e_woda/features/Suggestion/suggestion_page.dart';
 
 import 'package:flutter/material.dart';
 
 import '../ContactMayor/contact_mayor.dart';
->>>>>>> 33199bb4326b88636056f8972d9b98c9865841e9:lib/features/Connect/connect_page.dart
 import 'custom_container.dart';
 import 'package:flutter_gen/gen_l10n/app_localization.dart';
 
@@ -40,14 +31,9 @@ class Connect extends StatelessWidget {
               children: [
                 Padding(
                   padding: EdgeInsets.fromLTRB(0.07 * width, 0, 0, 10),
-                  child: Text(
-<<<<<<< HEAD:lib/Connect/connect_page.dart
+                  child: const Text(
                     "",
                     style: TextStyle(
-=======
-                    applocalization!.connect,
-                    style: const TextStyle(
->>>>>>> 33199bb4326b88636056f8972d9b98c9865841e9:lib/features/Connect/connect_page.dart
                       fontSize: 20.0,
                       fontWeight: FontWeight.w500,
                     ),
@@ -58,7 +44,7 @@ class Connect extends StatelessWidget {
                     const Spacer(),
                     GestureDetector(
                       child: CustomImageTitleConnect(
-                          index: 0, title: applocalization.contactMayor),
+                          index: 0, title: applocalization!.contactMayor),
                       onTap: () {
                         Navigator.push(
                             context,

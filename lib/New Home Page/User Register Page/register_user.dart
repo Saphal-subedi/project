@@ -1,24 +1,14 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:e_woda/Common/custom_appbar.dart';
-<<<<<<<< HEAD:lib/New Home Page/User Register Page/register_user.dart
-import 'package:e_woda/Firebase%20Firestore/firebase_firestore_service.dart';
-import 'package:e_woda/SnackBar/custom_snackbar.dart';
-import 'package:e_woda/New%20Home%20Page/User%20Login%20Page/login_user_page.dart';
-import 'package:e_woda/New%20Home%20Page/User%20Register%20Page/Drop%20Down%20Menu/drop_down_menu.dart';
-import 'package:e_woda/New%20Home%20Page/User%20Register%20Page/custom_textformfield.dart';
-import 'package:e_woda/New%20Home%20Page/User%20Register%20Page/register_user_model.dart';
-========
-import 'package:e_woda/Common/custom_snackbar.dart';
-import 'package:e_woda/firebase_services/Firebase%20Firestore/firebase_firestore_service.dart';
 
-import 'package:e_woda/features/authentication/User%20Login%20Page/login_user_page.dart';
 import 'package:e_woda/features/authentication/User%20Register%20Page/Drop%20Down%20Menu/drop_down_menu.dart';
 import 'package:e_woda/Common/custom_textformfield.dart';
-import 'package:e_woda/models/register_user_model.dart';
->>>>>>>> 33199bb4326b88636056f8972d9b98c9865841e9:lib/features/authentication/User Register Page/register_user.dart
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localization.dart';
+
+import '../User Login Page/login_user_page.dart';
 
 class RegisterUser extends StatelessWidget {
   RegisterUser({super.key});
@@ -32,17 +22,16 @@ class RegisterUser extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(60.0),
-          child: NavigateAppBar(
-              title: AppLocalizations.of(context)!.registerUser)),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Form(
-            key: formkey,
-            child: Column(
-              children: [
+        appBar: PreferredSize(
+            preferredSize: const Size.fromHeight(60.0),
+            child: NavigateAppBar(
+                title: AppLocalizations.of(context)!.registerUser)),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Form(
+              key: formkey,
+              child: Column(children: [
                 const SizedBox(height: 30.0),
                 CustomTextFormField(
                   hintText: AppLocalizations.of(context)!.userName,
@@ -97,11 +86,10 @@ class RegisterUser extends StatelessWidget {
                     return null;
                   }),
                 ),
-<<<<<<<< HEAD:lib/New Home Page/User Register Page/register_user.dart
-                SizedBox(height: 30.0),
-                CustomDropDownButton(),
-                SizedBox(height: 30.0),
-                SizedBox(height: 30.0),
+                const SizedBox(height: 30.0),
+                const CustomDropDownButton(),
+                const SizedBox(height: 30.0),
+                const SizedBox(height: 30.0),
                 Row(
                   children: [
                     Center(
@@ -113,58 +101,102 @@ class RegisterUser extends StatelessWidget {
                         child: TextButton(
                           onPressed: (() async {
                             if (formkey.currentState!.validate()) {
-                              print("NAME CONTROLLER IS SHOWN");
-                              print(nameController.text.trim());
-                              final message = await FirestoreServices()
-                                  .createUser(RegisterUserModel(
-                                      Name: nameController.text.toString(),
-                                      Phone: phoneController.text.toString(),
-                                      bloodGroup:
-                                          bloodGroupController.text.toString(),
-                                      email: emailController.text.toString(),
-                                      password:
-                                          passwordController.text.toString()));
-                              CustomSnackBar(context: context, message: message)
-                                  .snackbar();
-========
-                const SizedBox(height: 30.0),
-                const CustomDropDownButton(),
-                const SizedBox(height: 30.0),
-                Center(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15.0),
-                      color: Colors.blue.shade300,
-                    ),
-                    child: TextButton(
-                      onPressed: (() async {
-                        if (formkey.currentState!.validate()) {
-                          final message = await FirestoreServices().createUser(
-                              RegisterUserModel(
-                                  name: nameController.text.toString(),
-                                  phone: phoneController.text.toString(),
-                                  bloodGroup:
-                                      bloodGroupController.text.toString(),
-                                  email: emailController.text.toString(),
-                                  password:
-                                      passwordController.text.toString()));
+//                               print("NAME CONTROLLER IS SHOWN");
+//                               print(nameController.text.trim());
+//                               final message = await FirestoreServices()
+//                                   .createUser(RegisterUserModel(
+//                                       Name: nameController.text.toString(),
+//                                       Phone: phoneController.text.toString(),
+//                                       bloodGroup:
+//                                           bloodGroupController.text.toString(),
+//                                       email: emailController.text.toString(),
+//                                       password:
+//                                           passwordController.text.toString()));
+//                               CustomSnackBar(context: context, message: message)
+//                                   .snackbar();
+// ========
+                              const SizedBox(height: 30.0);
+                              const CustomDropDownButton();
+                              const SizedBox(height: 30.0);
+                              Center(
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(15.0),
+                                    color: Colors.blue.shade300,
+                                  ),
+                                  child: TextButton(
+                                    onPressed: (() async {
+                                      if (formkey.currentState!.validate()) {
+//                           final message = await FirestoreServices().createUser(
+//                               RegisterUserModel(
+//                                   name: nameController.text.toString(),
+//                                   phone: phoneController.text.toString(),
+//                                   bloodGroup:
+//                                       bloodGroupController.text.toString(),
+//                                   email: emailController.text.toString(),
+//                                   password:
+//                                       passwordController.text.toString()));
 
-                          customSnackbar(context, message);
->>>>>>>> 33199bb4326b88636056f8972d9b98c9865841e9:lib/features/authentication/User Register Page/register_user.dart
+//                           customSnackbar(context, message);
+// >>>>>>>> 33199bb4326b88636056f8972d9b98c9865841e9:lib/features/authentication/User Register Page/register_user.dart
 
-                              Navigator.pop(context);
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => LoginUser()));
+                                        Navigator.pop(context);
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    LoginUser()));
+                                      }
+                                    }),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(12.0),
+                                      child: Text(
+                                        AppLocalizations.of(context)!
+                                            .registerButton,
+                                        style: const TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 20.0,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              );
+                              const Spacer();
+                              Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(15.0),
+                                  color: Colors.blue.shade300,
+                                ),
+                                child: TextButton(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(12.0),
+                                    child: Text(
+                                      AppLocalizations.of(context)!
+                                          .alreadyHaveAnAccount,
+                                      style: const TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 18.0,
+                                      ),
+                                    ),
+                                  ),
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => LoginUser()));
+                                  },
+                                ),
+                              );
                             }
                           }),
                           child: Padding(
                             padding: const EdgeInsets.all(12.0),
                             child: Text(
                               AppLocalizations.of(context)!.registerButton,
-                              style: TextStyle(
-                                color: Colors.white,
+                              style: const TextStyle(
+                                color: Colors.white70,
                                 fontSize: 20.0,
                               ),
                             ),
@@ -172,77 +204,33 @@ class RegisterUser extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Spacer(),
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15.0),
-                        color: Colors.blue.shade300,
-                      ),
-                      child: TextButton(
-                        child: Padding(
-                          padding: const EdgeInsets.all(12.0),
+                    const SizedBox(height: 30.0),
+                    Row(
+                      children: [
+                        const Spacer(),
+                        TextButton(
                           child: Text(
                             AppLocalizations.of(context)!.alreadyHaveAnAccount,
-                            style: TextStyle(
-                              color: Colors.white,
+                            style: const TextStyle(
+                              color: Colors.black,
                               fontSize: 18.0,
                             ),
                           ),
+                          onPressed: () {
+                            Navigator.pop(context);
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => LoginUser()));
+                          },
                         ),
-                        onPressed: () {
-                          Navigator.pop(context);
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => LoginUser()));
-<<<<<<<< HEAD:lib/New Home Page/User Register Page/register_user.dart
-                        },
-                      ),
+                      ],
                     ),
-========
-                        }
-                      }),
-                      child: Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: Text(
-                          AppLocalizations.of(context)!.registerButton,
-                          style: const TextStyle(
-                            color: Colors.white70,
-                            fontSize: 20.0,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 30.0),
-                Row(
-                  children: [
-                    const Spacer(),
-                    TextButton(
-                      child: Text(
-                        AppLocalizations.of(context)!.alreadyHaveAnAccount,
-                        style: const TextStyle(
-                          color: Colors.black,
-                          fontSize: 18.0,
-                        ),
-                      ),
-                      onPressed: () {
-                        Navigator.pop(context);
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => LoginUser()));
-                      },
-                    ),
->>>>>>>> 33199bb4326b88636056f8972d9b98c9865841e9:lib/features/authentication/User Register Page/register_user.dart
                   ],
                 ),
-              ],
+              ]),
             ),
           ),
-        ),
-      ),
-    );
+        ));
   }
 }

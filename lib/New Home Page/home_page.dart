@@ -1,11 +1,9 @@
-import 'package:e_woda/Connect/connect_page.dart';
-import 'package:e_woda/Department/department_page.dart';
 import 'package:e_woda/New%20Home%20Page/Administrative%20Solutions/custom_container_administrativeSolutions.dart_page.dart';
 import 'package:e_woda/New%20Home%20Page/Community%20Engagement/community_engagement_page.dart';
 import 'package:e_woda/New%20Home%20Page/Emergency%20Services/emergency_services.dart';
 import 'package:e_woda/New%20Home%20Page/Woda%20List/woda_page.dart';
 import 'package:e_woda/New%20Home%20Page/top_container.dart';
-import 'package:e_woda/Services/services_page.dart';
+
 import 'package:e_woda/Shared%20Preferences/shared_preferences_services.dart';
 import 'package:e_woda/New%20Home%20Page/User%20Register%20Page/register_user.dart';
 import 'package:flutter/material.dart';
@@ -37,7 +35,7 @@ class _NewHomePageState extends State<NewHomePage> {
   @override
   Widget build(BuildContext context) {
     print(valb);
-    final height = MediaQuery.of(context).size.height;
+    // final height = MediaQuery.of(context).size.height;
 
     return Scaffold(
       appBar: AppBar(
@@ -53,7 +51,7 @@ class _NewHomePageState extends State<NewHomePage> {
                           MaterialPageRoute(
                               builder: (context) => RegisterUser()));
                     },
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.person,
                       color: Colors.black,
                     ))),
@@ -65,13 +63,13 @@ class _NewHomePageState extends State<NewHomePage> {
           decoration: BoxDecoration(color: Colors.blue.shade300),
         ),
       ),
-      body: SafeArea(
+      body: const SafeArea(
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              const TopContainer(),
+              TopContainer(),
               AdministrativeSolutions(),
               CommunityEngagement(),
               WodaPage(),

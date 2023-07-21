@@ -1,19 +1,19 @@
-import 'package:e_woda/Common/custom_appbar.dart';
-import 'package:e_woda/Services/more_services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localization.dart';
+
+import '../../features/Services/more_services.dart';
 
 class WodaPage extends StatelessWidget {
   const WodaPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
+    //  final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     final applocalization = AppLocalizations.of(context);
-    double padding = width * 0.005;
+    // double padding = width * 0.005;
     return Padding(
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
             Container(
@@ -26,10 +26,10 @@ class WodaPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: EdgeInsets.fromLTRB(20.0, 0, 0, 10),
+                    padding: const EdgeInsets.fromLTRB(20.0, 0, 0, 10),
                     child: Text(
                       applocalization!.services,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 20.0,
                         fontWeight: FontWeight.w500,
                       ),
@@ -50,18 +50,19 @@ class WodaPage extends StatelessWidget {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => MoreServices()));
+                                        builder: (context) =>
+                                            const MoreServices()));
                               }),
                               child: Container(
                                 width: width * 0.2,
                                 decoration: BoxDecoration(
-                                  color: Color(0xFF99ccff),
+                                  color: const Color(0xFF99ccff),
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
                                 child: Center(
                                   child: Text(
                                     "${AppLocalizations.of(context)!.woda} ${index + 1}",
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       fontWeight: FontWeight.w500,
                                       color: Colors.black,
                                     ),

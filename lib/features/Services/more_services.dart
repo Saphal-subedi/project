@@ -1,14 +1,4 @@
 import 'package:e_woda/Common/custom_appbar.dart';
-<<<<<<< HEAD:lib/Services/more_services.dart
-import 'package:e_woda/Services/Death%20Registration/death_registration.dart';
-import 'package:e_woda/New%20Home%20Page/Official%20Notices%20and%20Announcements/E%20Sifaris/e_sifaris_page.dart';
-import 'package:e_woda/New%20Home%20Page/Emergency%20Services/Hepline%20Number/helpline_number_page.dart';
-import 'package:e_woda/Services/Marrigae%20Registration/marriage_registration.dart';
-import 'package:e_woda/New%20Home%20Page/Interactive%20Services/Public%20Forum/public_forum_page.dart';
-import 'package:e_woda/New%20Home%20Page/Community%20Engagement/Tourism%20Site/tourism_site_page.dart';
-import 'package:e_woda/Services/Ward%20Info/ward_info_page.dart';
-import 'package:e_woda/Services/custom_container.dart';
-=======
 import 'package:e_woda/features/Services/Death%20Registration/death_registration.dart';
 import 'package:e_woda/features/Services/E%20Sifaris/e_sifaris_page.dart';
 import 'package:e_woda/features/Services/Hepline%20Number/helpline_number_page.dart';
@@ -17,7 +7,6 @@ import 'package:e_woda/features/Services/Public%20Forum/public_forum_page.dart';
 import 'package:e_woda/features/Services/Tourism%20Site/tourism_site_page.dart';
 import 'package:e_woda/features/Services/Ward%20Info/ward_info_page.dart';
 import 'package:e_woda/features/Services/custom_container.dart';
->>>>>>> 33199bb4326b88636056f8972d9b98c9865841e9:lib/features/Services/more_services.dart
 import 'package:flutter/material.dart';
 
 import 'Birth Registration/birth_registration.dart';

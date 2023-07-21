@@ -17,11 +17,7 @@ class CustomImageTitle extends StatelessWidget {
         children: [
           Container(
             decoration: BoxDecoration(
-<<<<<<< HEAD:lib/Department/custom_container.dart
-              color: Colors.transparent,
-=======
               color: const Color(0xFFF4E7E7),
->>>>>>> 33199bb4326b88636056f8972d9b98c9865841e9:lib/features/Department/custom_container.dart
               borderRadius: BorderRadius.circular(15.0),
             ),
             child: Column(

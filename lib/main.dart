@@ -53,16 +53,6 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    // return MultiProvider(
-    //   providers: [
-    //     //  Provider<DateTimeModel>(create: (_) => DateTimeModel()),
-    //   ],
-
-    //   child: MaterialApp(
-    //     home: SplashScreen(),
-    //     debugShowCheckedModeBanner: false,
-    //   ),
-    // );
     LocalJsonLocalization.delegate.directories = ['lib/l10n'];
     return MultiProvider(
       providers: [

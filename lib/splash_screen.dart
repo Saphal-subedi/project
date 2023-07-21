@@ -1,11 +1,6 @@
 import 'package:e_woda/New%20Home%20Page/home_page.dart';
 import 'package:flutter/material.dart';
 
-<<<<<<< HEAD
-=======
-import 'features/HomePage/home_page.dart';
-
->>>>>>> 33199bb4326b88636056f8972d9b98c9865841e9
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -46,13 +41,8 @@ class _SplashScreenState extends State<SplashScreen> {
           children: [
             Image(
               image: AssetImage("assets/images/kathmandu-logo.png"),
-<<<<<<< HEAD
               height: 200,
               width: 200,
-=======
-              height: 250,
-              width: 250,
->>>>>>> 33199bb4326b88636056f8972d9b98c9865841e9
             ),
             SizedBox(height: 20.0),
             Text(

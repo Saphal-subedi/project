@@ -1,13 +1,3 @@
-<<<<<<< HEAD:lib/Department/department_page.dart
-import 'package:e_woda/New%20Home%20Page/Administrative%20Solutions/Administration/administration.dart';
-import 'package:e_woda/New%20Home%20Page/Community%20Engagement/Education/education_page.dart';
-import 'package:e_woda/New%20Home%20Page/Community%20Engagement/Environment/environment.dart';
-import 'package:e_woda/New%20Home%20Page/Administrative%20Solutions/Financial%20services/financial_services_page.dart';
-import 'package:e_woda/New%20Home%20Page/Administrative%20Solutions/LawAndHumanRights/law_and_human_page.dart';
-import 'package:e_woda/New%20Home%20Page/Official%20Notices%20and%20Announcements/Notice/notice_page.dart';
-import 'package:e_woda/Department/Urban%20Management/urban_management.dart';
-import 'package:e_woda/Department/custom_container.dart';
-=======
 import 'package:e_woda/features/Department/Administration/administration.dart';
 import 'package:e_woda/features/Department/Education/education_page.dart';
 import 'package:e_woda/features/Department/Environment/environment.dart';
@@ -16,11 +6,10 @@ import 'package:e_woda/features/Department/LawAndHumanRights/law_and_human_page.
 import 'package:e_woda/features/Department/Notice/notice_page.dart';
 import 'package:e_woda/features/Department/Urban%20Management/urban_management.dart';
 import 'package:e_woda/features/Department/custom_container.dart';
->>>>>>> 33199bb4326b88636056f8972d9b98c9865841e9:lib/features/Department/department_page.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localization.dart';
 
-import '../New Home Page/Community Engagement/Health/health_page.dart';
+import 'Health/health_page.dart';
 
 class Department extends StatelessWidget {
   const Department({super.key});
