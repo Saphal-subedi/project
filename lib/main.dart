@@ -1,8 +1,12 @@
 import 'package:e_woda/Shared%20Preferences/shared_preferences_services.dart';
+import 'package:e_woda/core/resources/app_theme.dart';
+import 'package:e_woda/core/routes/routes_config.dart';
+import 'package:e_woda/provider/loading_provider.dart';
 import 'package:e_woda/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:localization/localization.dart';
 import 'package:flutter_gen/gen_l10n/app_localization.dart';
+import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -33,6 +37,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
+  // ignore: unused_field
   Locale? _locale;
   setlocal(Locale locale) {
     setState(() {});
@@ -52,25 +57,28 @@ class _MyAppState extends State<MyApp> {
     //   providers: [
     //     //  Provider<DateTimeModel>(create: (_) => DateTimeModel()),
     //   ],
+
     //   child: MaterialApp(
     //     home: SplashScreen(),
     //     debugShowCheckedModeBanner: false,
     //   ),
     // );
     LocalJsonLocalization.delegate.directories = ['lib/l10n'];
-    return MaterialApp(
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      locale: checkLang(),
-      theme: ThemeData(
-        primaryColor: Colors.red,
-        appBarTheme: AppBarTheme(
-          elevation: 2.0,
-          backgroundColor: Colors.orange,
-        ),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => LoadinProvider(),
+        )
+      ],
+      child: MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        locale: checkLang(),
+        theme: AppTheme.appThemeData,
+        home: const SplashScreen(),
+        debugShowCheckedModeBanner: false,
+        onGenerateRoute: AppRoutes.generateRoutes,
       ),
-      home: const SplashScreen(),
-      debugShowCheckedModeBanner: false,
     );
   }
 }
