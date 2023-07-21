@@ -19,7 +19,7 @@ class CustomImageTitleConnect extends StatelessWidget {
         children: [
           Container(
             decoration: BoxDecoration(
-              color: const Color(0xFFF4E7E7),
+              color: Colors.transparent,
               borderRadius: BorderRadius.circular(15.0),
             ),
             child: Column(

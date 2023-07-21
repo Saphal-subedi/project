@@ -1,7 +1,8 @@
-import 'package:e_woda/Services/Hepline%20Number/helpline_number_page.dart';
+import 'package:e_woda/New%20Home%20Page/Emergency%20Services/Hepline%20Number/helpline_number_page.dart';
 import 'package:e_woda/Services/TaxPayment/tax_payment_page.dart';
 import 'package:e_woda/Services/more_services.dart';
 import 'package:e_woda/Services/services_localization.dart';
+import 'package:e_woda/New%20Home%20Page/Woda%20List/woda_page.dart';
 import 'package:flutter/material.dart';
 
 import 'Birth Registration/birth_registration.dart';
@@ -21,7 +22,7 @@ class Services extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20.0),
-          color: const Color(0xFFFCF3F3),
+          color: Colors.blue.shade50,
         ),
         child: Center(
           child: Padding(
@@ -48,7 +49,7 @@ class Services extends StatelessWidget {
                       child: Container(
                           height: 35.0,
                           decoration: BoxDecoration(
-                            color: Colors.red,
+                            color: Colors.yellow.shade900,
                             borderRadius: BorderRadius.circular(20.0),
                           ),
                           child: TextButton(
@@ -57,7 +58,7 @@ class Services extends StatelessWidget {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            const MoreServices()));
+                                            const WodaPage()));
                               },
                               child: Text(
                                 applocalization!.viewmore,
@@ -78,8 +79,7 @@ class Services extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) =>
-                                    const BirthRegistration()));
+                                builder: (context) => const WodaPage()));
                       }),
                     ),
                     const Spacer(),
@@ -90,7 +90,7 @@ class Services extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const TaxPayment()));
+                                builder: (context) => const WodaPage()));
                       },
                     ),
                     const Spacer(),
@@ -101,7 +101,7 @@ class Services extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const HelplineNumber()));
+                                builder: (context) => const WodaPage()));
                       },
                     ),
                     const Spacer(),

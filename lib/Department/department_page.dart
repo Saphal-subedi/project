@@ -1,15 +1,15 @@
-import 'package:e_woda/Department/Administration/administration.dart';
-import 'package:e_woda/Department/Education/education_page.dart';
-import 'package:e_woda/Department/Environment/environment.dart';
-import 'package:e_woda/Department/Financial%20services/financial_services_page.dart';
-import 'package:e_woda/Department/LawAndHumanRights/law_and_human_page.dart';
-import 'package:e_woda/Department/Notice/notice_page.dart';
+import 'package:e_woda/New%20Home%20Page/Administrative%20Solutions/Administration/administration.dart';
+import 'package:e_woda/New%20Home%20Page/Community%20Engagement/Education/education_page.dart';
+import 'package:e_woda/New%20Home%20Page/Community%20Engagement/Environment/environment.dart';
+import 'package:e_woda/New%20Home%20Page/Administrative%20Solutions/Financial%20services/financial_services_page.dart';
+import 'package:e_woda/New%20Home%20Page/Administrative%20Solutions/LawAndHumanRights/law_and_human_page.dart';
+import 'package:e_woda/New%20Home%20Page/Official%20Notices%20and%20Announcements/Notice/notice_page.dart';
 import 'package:e_woda/Department/Urban%20Management/urban_management.dart';
 import 'package:e_woda/Department/custom_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localization.dart';
 
-import 'Health/health_page.dart';
+import '../New Home Page/Community Engagement/Health/health_page.dart';
 
 class Department extends StatelessWidget {
   const Department({super.key});
@@ -24,7 +24,7 @@ class Department extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20.0),
-          color: const Color(0xFFFCF3F3),
+          color: Colors.blue.shade50,
         ),
         child: Center(
           child: Padding(
@@ -36,7 +36,7 @@ class Department extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.fromLTRB(0.06 * width, 0, 0, 10),
                   child: Text(
-                    applocalization!.departments,
+                    applocalization!.administratrativesolutions,
                     style: const TextStyle(
                       fontSize: 20.0,
                       fontWeight: FontWeight.w500,

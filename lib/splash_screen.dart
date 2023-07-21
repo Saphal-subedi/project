@@ -1,6 +1,5 @@
+import 'package:e_woda/New%20Home%20Page/home_page.dart';
 import 'package:flutter/material.dart';
-
-import 'HomePage/home_page.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -18,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => const HomePage(),
+            builder: (context) => const NewHomePage(),
           ),
         );
       },
@@ -41,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image(
-              image: AssetImage("assets/images/kathmandu-logo.jpg"),
+              image: AssetImage("assets/images/kathmandu-logo.png"),
               height: 200,
               width: 200,
             ),

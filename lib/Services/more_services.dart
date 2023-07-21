@@ -1,10 +1,10 @@
 import 'package:e_woda/Common/custom_appbar.dart';
 import 'package:e_woda/Services/Death%20Registration/death_registration.dart';
-import 'package:e_woda/Services/E%20Sifaris/e_sifaris_page.dart';
-import 'package:e_woda/Services/Hepline%20Number/helpline_number_page.dart';
+import 'package:e_woda/New%20Home%20Page/Official%20Notices%20and%20Announcements/E%20Sifaris/e_sifaris_page.dart';
+import 'package:e_woda/New%20Home%20Page/Emergency%20Services/Hepline%20Number/helpline_number_page.dart';
 import 'package:e_woda/Services/Marrigae%20Registration/marriage_registration.dart';
-import 'package:e_woda/Services/Public%20Forum/public_forum_page.dart';
-import 'package:e_woda/Services/Tourism%20Site/tourism_site_page.dart';
+import 'package:e_woda/New%20Home%20Page/Interactive%20Services/Public%20Forum/public_forum_page.dart';
+import 'package:e_woda/New%20Home%20Page/Community%20Engagement/Tourism%20Site/tourism_site_page.dart';
 import 'package:e_woda/Services/Ward%20Info/ward_info_page.dart';
 import 'package:e_woda/Services/custom_container.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +32,7 @@ class MoreServices extends StatelessWidget {
           height: height * 0.6,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20.0),
-            color: const Color(0xFFFCF3F3),
+            color: Colors.blue.shade50,
           ),
           child: Column(
             children: [

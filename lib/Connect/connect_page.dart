@@ -1,9 +1,9 @@
-import 'package:e_woda/Connect/Queries/queries_page.dart';
+import 'package:e_woda/New%20Home%20Page/Administrative%20Solutions/Queries/queries_page.dart';
 import 'package:e_woda/Connect/Suggestion/suggestion_page.dart';
 
 import 'package:flutter/material.dart';
 
-import 'ContactMayor/contact_mayor.dart';
+import '../New Home Page/Administrative Solutions/ContactMayor/contact_mayor.dart';
 import 'custom_container.dart';
 import 'package:flutter_gen/gen_l10n/app_localization.dart';
 
@@ -20,7 +20,7 @@ class Connect extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20.0),
-          color: const Color(0xFFFCF3F3),
+          color: Colors.blue.shade50,
         ),
         child: Center(
           child: Padding(
@@ -32,7 +32,7 @@ class Connect extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.fromLTRB(0.07 * width, 0, 0, 10),
                   child: Text(
-                    applocalization!.connect,
+                    "",
                     style: TextStyle(
                       fontSize: 20.0,
                       fontWeight: FontWeight.w500,
