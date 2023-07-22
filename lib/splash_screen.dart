@@ -1,5 +1,6 @@
-import 'package:e_woda/New%20Home%20Page/home_page.dart';
 import 'package:flutter/material.dart';
+
+import 'features/HomePage/home_page.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -12,7 +13,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Future.delayed(
-      const Duration(seconds: 6),
+      const Duration(seconds: 3),
       () {
         Navigator.pushReplacement(
           context,

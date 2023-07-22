@@ -1,11 +1,11 @@
-import 'package:e_woda/New%20Home%20Page/Emergency%20Services/Ambulance/ambulance_page.dart';
-import 'package:e_woda/New%20Home%20Page/Emergency%20Services/Hepline%20Number/helpline_number_page.dart';
-import 'package:e_woda/New%20Home%20Page/Emergency%20Services/Police/police_page.dart';
-import 'package:e_woda/New%20Home%20Page/Interactive%20Services/Public%20Forum/public_forum_page.dart';
+import 'package:e_woda/features/Emergency%20Services/Ambulance/ambulance_page.dart';
+import 'package:e_woda/features/Emergency%20Services/Hepline%20Number/helpline_number_page.dart';
+import 'package:e_woda/features/Emergency%20Services/Police/police_page.dart';
+import 'package:e_woda/features/Interactive%20Services/Public%20Forum/public_forum_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localization.dart';
 
-import '../Common Container/custom_title_image.dart';
+import '../../Common/custom_title_image.dart';
 
 class EmergencyServices extends StatelessWidget {
   const EmergencyServices({super.key});

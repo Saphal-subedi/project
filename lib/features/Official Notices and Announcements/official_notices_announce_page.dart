@@ -1,11 +1,11 @@
-import 'package:e_woda/New%20Home%20Page/Community%20Engagement/Health/health_page.dart';
-import 'package:e_woda/New%20Home%20Page/Official%20Notices%20and%20Announcements/Notice/notice_page.dart';
-import 'package:e_woda/New%20Home%20Page/Official%20Notices%20and%20Announcements/E%20Sifaris/e_sifaris_page.dart';
-import 'package:e_woda/New%20Home%20Page/Official%20Notices%20and%20Announcements/Suggestions/suggestion_page.dart';
+import 'package:e_woda/features/Community%20Engagement/Health/health_page.dart';
+import 'package:e_woda/features/Official%20Notices%20and%20Announcements/Notice/notice_page.dart';
+import 'package:e_woda/features/Official%20Notices%20and%20Announcements/E%20Sifaris/e_sifaris_page.dart';
+import 'package:e_woda/features/Official%20Notices%20and%20Announcements/Suggestions/suggestion_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localization.dart';
 
-import '../Common Container/custom_title_image.dart';
+import '../../Common/custom_title_image.dart';
 
 class OfficialNoticeAndAnnouncements extends StatelessWidget {
   const OfficialNoticeAndAnnouncements({super.key});

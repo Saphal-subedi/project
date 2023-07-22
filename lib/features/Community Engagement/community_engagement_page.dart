@@ -1,16 +1,20 @@
-import 'package:e_woda/New%20Home%20Page/Administrative%20Solutions/ContactMayor/contact_mayor.dart';
-import 'package:e_woda/New%20Home%20Page/Administrative%20Solutions/Queries/queries_page.dart';
-import 'package:e_woda/New%20Home%20Page/Administrative%20Solutions/Administration/administration.dart';
-import 'package:e_woda/New%20Home%20Page/Administrative%20Solutions/Financial%20services/financial_services_page.dart';
-import 'package:e_woda/New%20Home%20Page/Administrative%20Solutions/LawAndHumanRights/law_and_human_page.dart';
-import 'package:e_woda/New%20Home%20Page/Common%20Container/custom_title_image.dart';
+import 'package:e_woda/features/Administrative%20Solutions/ContactMayor/contact_mayor.dart';
+import 'package:e_woda/features/Administrative%20Solutions/Queries/queries_page.dart';
+import 'package:e_woda/features/Administrative%20Solutions/Administration/administration.dart';
+import 'package:e_woda/features/Community%20Engagement/Education/education_page.dart';
+import 'package:e_woda/features/Community%20Engagement/Environment/environment.dart';
+import 'package:e_woda/features/Administrative%20Solutions/Financial%20services/financial_services_page.dart';
+import 'package:e_woda/features/Community%20Engagement/Health/health_page.dart';
+import 'package:e_woda/features/Administrative%20Solutions/LawAndHumanRights/law_and_human_page.dart';
+import 'package:e_woda/Common/custom_title_image.dart';
+import 'package:e_woda/features/Community%20Engagement/Tourism%20Site/tourism_site_page.dart';
 
 import 'package:flutter/material.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localization.dart';
 
-class AdministrativeSolutions extends StatelessWidget {
-  const AdministrativeSolutions({super.key});
+class CommunityEngagement extends StatelessWidget {
+  const CommunityEngagement({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +22,9 @@ class AdministrativeSolutions extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     final applocalization = AppLocalizations.of(context);
     return Padding(
-      padding: EdgeInsets.all(15.0),
+      padding: EdgeInsets.all(15),
       child: Container(
+        width: double.infinity,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20.0),
           color: Colors.blue.shade50,
@@ -31,9 +36,9 @@ class AdministrativeSolutions extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsets.fromLTRB(20.0, 0, 0, 10),
+                padding: EdgeInsets.fromLTRB(20.0, 0, 0, 20),
                 child: Text(
-                  applocalization!.administratrativesolutions,
+                  applocalization!.communityengagement,
                   style: TextStyle(
                     fontSize: 20.0,
                     fontWeight: FontWeight.w500,
@@ -44,65 +49,52 @@ class AdministrativeSolutions extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
+                    SizedBox(width: 20.0),
                     GestureDetector(
                       child: CustomTitleImage(
-                          image: "assets/images/administration.png",
-                          title: applocalization!.administration),
+                          image: "assets/images/education.png",
+                          title: applocalization!.education),
                       onTap: () {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const Administration()));
+                                builder: (context) => const Education()));
                       },
                     ),
                     SizedBox(width: 20.0),
                     GestureDetector(
                       child: CustomTitleImage(
-                          image: "assets/images/financial.png",
-                          title: applocalization!.financialService),
+                          image: "assets/images/health.png",
+                          title: applocalization!.health),
                       onTap: () {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) =>
-                                    const FinancialServices()));
+                                builder: (context) => const Health()));
                       },
                     ),
                     SizedBox(width: 20.0),
                     GestureDetector(
                       child: CustomTitleImage(
-                          image: "assets/images/laws and human rights.png",
-                          title: applocalization!.laws),
+                          image: "assets/images/environment.png",
+                          title: applocalization!.environment),
                       onTap: () {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) =>
-                                    const LawAndHumanRights()));
+                                builder: (context) => const Environment()));
                       },
                     ),
                     SizedBox(width: 20.0),
                     GestureDetector(
                       child: CustomTitleImage(
-                          image: "assets/images/contact-mayor.png",
-                          title: applocalization!.contactMayor),
+                          image: "assets/images/tourism site.png",
+                          title: applocalization!.tourismSite),
                       onTap: () {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const ContactMayor()));
-                      },
-                    ),
-                    SizedBox(width: 20.0),
-                    GestureDetector(
-                      child: CustomTitleImage(
-                          image: "assets/images/queries.png",
-                          title: applocalization!.queries),
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const Queries()));
+                                builder: (context) => const TourismSite()));
                       },
                     ),
                   ],

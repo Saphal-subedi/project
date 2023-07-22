@@ -1,22 +1,29 @@
-import 'package:e_woda/features/Connect/connect_page.dart';
-import 'package:e_woda/features/Department/department_page.dart';
+import 'package:e_woda/features/Administrative%20Solutions/custom_container_administrativeSolutions.dart_page.dart';
+import 'package:e_woda/features/Community%20Engagement/community_engagement_page.dart';
+import 'package:e_woda/features/Emergency%20Services/emergency_services.dart';
+import 'package:e_woda/features/HomePage/widgets/drawer_page.dart';
 import 'package:e_woda/features/HomePage/widgets/top_container.dart';
-import 'package:e_woda/features/Services/services_page.dart';
+import 'package:e_woda/features/Woda%20List/woda_page.dart';
+
 import 'package:e_woda/Shared%20Preferences/shared_preferences_services.dart';
-import 'package:e_woda/features/authentication/User%20Register%20Page/register_user.dart';
+import 'package:e_woda/features/authentication/User%20Login%20Page/login_user_page.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localization.dart';
 
-import 'widgets/drawer_page.dart';
+import '../Interactive Services/interactive_services_page.dart';
+import '../Official Notices and Announcements/official_notices_announce_page.dart';
+import '../Online Information/online_information_page.dart';
+import '../authentication/User Register Page/register_user.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class NewHomePage extends StatefulWidget {
+  const NewHomePage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<NewHomePage> createState() => _NewHomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _NewHomePageState extends State<NewHomePage> {
   bool? valb;
   void initstate() {
     getdata();
@@ -29,7 +36,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    //  final height = MediaQuery.of(context).size.height;
+    print(valb);
+    final height = MediaQuery.of(context).size.height;
 
     return Scaffold(
       appBar: AppBar(
@@ -37,15 +45,16 @@ class _HomePageState extends State<HomePage> {
           Padding(
             padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
             child: CircleAvatar(
-                backgroundColor: Colors.yellow.shade900,
+                backgroundColor: Colors.orange.shade50,
                 child: IconButton(
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => RegisterUser()));
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => LoginUser()));
                     },
-                    icon: const Icon(Icons.person))),
+                    icon: Icon(
+                      Icons.person,
+                      color: Colors.black,
+                    ))),
           ),
         ],
         title: Text(AppLocalizations.of(context)!.name),
@@ -54,16 +63,20 @@ class _HomePageState extends State<HomePage> {
           decoration: BoxDecoration(color: Colors.blue.shade300),
         ),
       ),
-      body: const SafeArea(
+      body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              TopContainer(),
-              Department(),
-              Connect(),
-              Services(),
+              const TopContainer(),
+              AdministrativeSolutions(),
+              CommunityEngagement(),
+              WodaPage(),
+              OfficialNoticeAndAnnouncements(),
+              EmergencyServices(),
+              OnlineInformation(),
+              InteractiveServices(),
             ],
           ),
         ),

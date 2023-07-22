@@ -28,7 +28,7 @@ class TopContainer extends StatelessWidget {
                   ),
                   child: Center(
                     child: Text(
-                      'News $i',
+                      AppLocalizations.of(context)!.news,
                       style:
                           const TextStyle(fontSize: 30.0, color: Colors.white),
                     ),

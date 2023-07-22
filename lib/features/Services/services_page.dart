@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../New Home Page/Woda List/woda_page.dart';
+import '../Woda List/woda_page.dart';
 import 'custom_container.dart';
 import 'package:flutter_gen/gen_l10n/app_localization.dart';
 
