@@ -1,4 +1,3 @@
-import 'package:e_woda/features/Community%20Engagement/Health/health_page.dart';
 import 'package:e_woda/features/Official%20Notices%20and%20Announcements/Notice/notice_page.dart';
 import 'package:e_woda/features/Official%20Notices%20and%20Announcements/E%20Sifaris/e_sifaris_page.dart';
 import 'package:e_woda/features/Official%20Notices%20and%20Announcements/Suggestions/suggestion_page.dart';
@@ -12,11 +11,11 @@ class OfficialNoticeAndAnnouncements extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
+    // final height = MediaQuery.of(context).size.height;
+    // final width = MediaQuery.of(context).size.width;
     final applocalization = AppLocalizations.of(context);
     return Padding(
-      padding: EdgeInsets.all(15),
+      padding: const EdgeInsets.all(15),
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
@@ -30,10 +29,10 @@ class OfficialNoticeAndAnnouncements extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsets.fromLTRB(20.0, 0, 0, 20),
+                padding: const EdgeInsets.fromLTRB(20.0, 0, 0, 20),
                 child: Text(
                   applocalization!.officialnoticeandannounement,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 20.0,
                     fontWeight: FontWeight.w500,
                   ),
@@ -41,11 +40,11 @@ class OfficialNoticeAndAnnouncements extends StatelessWidget {
               ),
               Row(
                 children: [
-                  Spacer(),
+                  const Spacer(),
                   GestureDetector(
                     child: CustomTitleImage(
                         image: "assets/images/Notices.png",
-                        title: applocalization!.notice),
+                        title: applocalization.notice),
                     onTap: () {
                       Navigator.push(
                           context,
@@ -53,11 +52,11 @@ class OfficialNoticeAndAnnouncements extends StatelessWidget {
                               builder: (context) => const Notice()));
                     },
                   ),
-                  Spacer(),
+                  const Spacer(),
                   GestureDetector(
                     child: CustomTitleImage(
                         image: "assets/images/suggestion.png",
-                        title: applocalization!.suggestions),
+                        title: applocalization.suggestions),
                     onTap: () {
                       Navigator.push(
                           context,
@@ -65,11 +64,11 @@ class OfficialNoticeAndAnnouncements extends StatelessWidget {
                               builder: (context) => const Suggestion()));
                     },
                   ),
-                  Spacer(),
+                  const Spacer(),
                   GestureDetector(
                     child: CustomTitleImage(
                         image: "assets/images/e-sifaris.png",
-                        title: applocalization!.esifarish),
+                        title: applocalization.esifarish),
                     onTap: () {
                       Navigator.push(
                           context,
@@ -77,7 +76,7 @@ class OfficialNoticeAndAnnouncements extends StatelessWidget {
                               builder: (context) => const ESifaris()));
                     },
                   ),
-                  Spacer(),
+                  const Spacer(),
                 ],
               ),
             ],

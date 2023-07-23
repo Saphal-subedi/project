@@ -1,13 +1,14 @@
 import 'package:e_woda/Common/custom_appbar.dart';
 import 'package:e_woda/features/Services/Death%20Registration/death_registration.dart';
-import 'package:e_woda/features/Services/E%20Sifaris/e_sifaris_page.dart';
-import 'package:e_woda/features/Services/Hepline%20Number/helpline_number_page.dart';
+
 import 'package:e_woda/features/Services/Marrigae%20Registration/marriage_registration.dart';
 import 'package:e_woda/features/Services/Public%20Forum/public_forum_page.dart';
-import 'package:e_woda/features/Services/Tourism%20Site/tourism_site_page.dart';
+
 import 'package:e_woda/features/Services/Ward%20Info/ward_info_page.dart';
 import 'package:e_woda/features/Services/custom_container.dart';
 import 'package:flutter/material.dart';
+
+import '../../core/routes/routes_string.dart';
 
 import 'Birth Registration/birth_registration.dart';
 import 'TaxPayment/tax_payment_page.dart';
@@ -90,10 +91,7 @@ class MoreServices extends StatelessWidget {
                     child: CustomImageTitleServices(
                         index: 4, title: applocalization.helplineNumber),
                     onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const HelplineNumber()));
+                      Navigator.pushNamed(context, RouteString.helplineNumber);
                     },
                   ),
                   const Spacer(),
@@ -116,10 +114,7 @@ class MoreServices extends StatelessWidget {
                     child: CustomImageTitleServices(
                         index: 6, title: applocalization.tourismSite),
                     onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const TourismSite()));
+                      Navigator.pushNamed(context, RouteString.tourismArea);
                     },
                   ),
                   const Spacer(),
@@ -127,10 +122,7 @@ class MoreServices extends StatelessWidget {
                     child: CustomImageTitleServices(
                         index: 7, title: applocalization.esifarish),
                     onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const ESifaris()));
+                      Navigator.pushNamed(context, RouteString.eSifaris);
                     },
                   ),
                   const Spacer(),

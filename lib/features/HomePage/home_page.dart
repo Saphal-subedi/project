@@ -14,7 +14,6 @@ import 'package:flutter_gen/gen_l10n/app_localization.dart';
 import '../Interactive Services/interactive_services_page.dart';
 import '../Official Notices and Announcements/official_notices_announce_page.dart';
 import '../Online Information/online_information_page.dart';
-import '../authentication/User Register Page/register_user.dart';
 
 class NewHomePage extends StatefulWidget {
   const NewHomePage({super.key});
@@ -36,9 +35,6 @@ class _NewHomePageState extends State<NewHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    print(valb);
-    final height = MediaQuery.of(context).size.height;
-
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -51,7 +47,7 @@ class _NewHomePageState extends State<NewHomePage> {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) => LoginUser()));
                     },
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.person,
                       color: Colors.black,
                     ))),
@@ -63,13 +59,13 @@ class _NewHomePageState extends State<NewHomePage> {
           decoration: BoxDecoration(color: Colors.blue.shade300),
         ),
       ),
-      body: SafeArea(
+      body: const SafeArea(
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              const TopContainer(),
+              TopContainer(),
               AdministrativeSolutions(),
               CommunityEngagement(),
               WodaPage(),

@@ -24,7 +24,7 @@ class Health extends StatelessWidget {
                 shrinkWrap: true,
                 itemBuilder: ((context, index) {
                   return Card(
-                    color: Colors.green,
+                    color: Colors.blue.shade300,
                     child: ListTile(
                       leading: Text(AppLocalizations.of(context)!.doctorname),
                       title: Column(

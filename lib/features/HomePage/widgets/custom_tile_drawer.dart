@@ -13,23 +13,23 @@ class DrawerContent extends StatelessWidget {
           children: [
             Container(
               height: 30.0,
-              decoration: BoxDecoration(shape: BoxShape.circle),
+              decoration: const BoxDecoration(shape: BoxShape.circle),
               child: Image.asset(
                 image,
                 fit: BoxFit.cover,
               ),
             ),
-            SizedBox(width: 10.0),
+            const SizedBox(width: 10.0),
             Text(
               title,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 18.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ],
         ),
-        SizedBox(height: 17.0),
+        const SizedBox(height: 17.0),
       ],
     );
   }

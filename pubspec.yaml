@@ -53,6 +53,7 @@ dependencies:
   path_provider: ^2.0.15
   permission_handler: ^10.4.2
   syncfusion_flutter_pdfviewer: ^20.4.54
+  clean_nepali_calendar: ^2.0.1
  
 
 dev_dependencies:

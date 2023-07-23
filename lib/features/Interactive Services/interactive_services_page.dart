@@ -9,11 +9,11 @@ class InteractiveServices extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
+    // final height = MediaQuery.of(context).size.height;
+    // final width = MediaQuery.of(context).size.width;
     final applocalization = AppLocalizations.of(context);
     return Padding(
-      padding: EdgeInsets.all(15),
+      padding: const EdgeInsets.all(15),
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
@@ -27,10 +27,10 @@ class InteractiveServices extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsets.fromLTRB(20.0, 0, 0, 20),
+                padding: const EdgeInsets.fromLTRB(20.0, 0, 0, 20),
                 child: Text(
                   applocalization!.interactiveservices,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 20.0,
                     fontWeight: FontWeight.w500,
                   ),
@@ -38,11 +38,11 @@ class InteractiveServices extends StatelessWidget {
               ),
               Row(
                 children: [
-                  Spacer(),
+                  const Spacer(),
                   GestureDetector(
                     child: CustomTitleImage(
                         image: "assets/images/public-forum.png",
-                        title: applocalization!.publicforum),
+                        title: applocalization.publicforum),
                     onTap: () {
                       Navigator.push(
                           context,
@@ -50,7 +50,7 @@ class InteractiveServices extends StatelessWidget {
                               builder: (context) => const PublicForum()));
                     },
                   ),
-                  Spacer(),
+                  const Spacer(),
                 ],
               ),
             ],

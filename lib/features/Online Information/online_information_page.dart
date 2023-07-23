@@ -1,6 +1,3 @@
-import 'package:e_woda/features/Community%20Engagement/Health/health_page.dart';
-import 'package:e_woda/features/Official%20Notices%20and%20Announcements/Notice/notice_page.dart';
-import 'package:e_woda/features/Official%20Notices%20and%20Announcements/E%20Sifaris/e_sifaris_page.dart';
 import 'package:e_woda/features/Online%20Information/Blog/blog_page.dart';
 import 'package:e_woda/features/Online%20Information/News%20Portal/news_portal_page.dart';
 import 'package:flutter/material.dart';
@@ -13,11 +10,11 @@ class OnlineInformation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
+    // final height = MediaQuery.of(context).size.height;
+    // final width = MediaQuery.of(context).size.width;
     final applocalization = AppLocalizations.of(context);
     return Padding(
-      padding: EdgeInsets.all(15),
+      padding: const EdgeInsets.all(15),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20.0),
@@ -30,10 +27,10 @@ class OnlineInformation extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsets.fromLTRB(20.0, 0, 0, 20),
+                padding: const EdgeInsets.fromLTRB(20.0, 0, 0, 20),
                 child: Text(
                   applocalization!.onlineinformation,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 20.0,
                     fontWeight: FontWeight.w500,
                   ),
@@ -41,11 +38,11 @@ class OnlineInformation extends StatelessWidget {
               ),
               Row(
                 children: [
-                  Spacer(),
+                  const Spacer(),
                   GestureDetector(
                     child: CustomTitleImage(
                         image: "assets/images/news portal.png",
-                        title: applocalization!.newsportal),
+                        title: applocalization.newsportal),
                     onTap: () {
                       Navigator.push(
                           context,
@@ -53,11 +50,11 @@ class OnlineInformation extends StatelessWidget {
                               builder: (context) => const NewsPortal()));
                     },
                   ),
-                  Spacer(),
+                  const Spacer(),
                   GestureDetector(
                     child: CustomTitleImage(
                         image: "assets/images/blog.png",
-                        title: applocalization!.blog),
+                        title: applocalization.blog),
                     onTap: () {
                       Navigator.push(
                           context,
@@ -65,7 +62,7 @@ class OnlineInformation extends StatelessWidget {
                               builder: (context) => const Blog()));
                     },
                   ),
-                  Spacer(),
+                  const Spacer(),
                 ],
               ),
             ],

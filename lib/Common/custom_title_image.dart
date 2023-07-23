@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CustomTitleImage extends StatelessWidget {
-  CustomTitleImage({super.key, required this.image, required this.title});
-  String image;
-  String title;
+  const CustomTitleImage({super.key, required this.image, required this.title});
+  final String image;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class CustomTitleImage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Container(
+                SizedBox(
                   height: 0.11 * height,
                   width: 0.20 * width,
                   child: Center(

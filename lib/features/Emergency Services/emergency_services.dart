@@ -1,7 +1,7 @@
 import 'package:e_woda/features/Emergency%20Services/Ambulance/ambulance_page.dart';
 import 'package:e_woda/features/Emergency%20Services/Hepline%20Number/helpline_number_page.dart';
 import 'package:e_woda/features/Emergency%20Services/Police/police_page.dart';
-import 'package:e_woda/features/Interactive%20Services/Public%20Forum/public_forum_page.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localization.dart';
 
@@ -12,11 +12,11 @@ class EmergencyServices extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
+    // final height = MediaQuery.of(context).size.height;
+    // final width = MediaQuery.of(context).size.width;
     final applocalization = AppLocalizations.of(context);
     return Padding(
-      padding: EdgeInsets.all(15),
+      padding: const EdgeInsets.all(15),
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
@@ -30,10 +30,10 @@ class EmergencyServices extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsets.fromLTRB(20.0, 0, 0, 20),
+                padding: const EdgeInsets.fromLTRB(20.0, 0, 0, 20),
                 child: Text(
                   applocalization!.emergencyservices,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 20.0,
                     fontWeight: FontWeight.w500,
                   ),
@@ -41,11 +41,11 @@ class EmergencyServices extends StatelessWidget {
               ),
               Row(
                 children: [
-                  Spacer(),
+                  const Spacer(),
                   GestureDetector(
                     child: CustomTitleImage(
                         image: "assets/images/helpline-number.png",
-                        title: applocalization!.helplineNumber),
+                        title: applocalization.helplineNumber),
                     onTap: () {
                       Navigator.push(
                           context,
@@ -53,11 +53,11 @@ class EmergencyServices extends StatelessWidget {
                               builder: (context) => const HelplineNumber()));
                     },
                   ),
-                  Spacer(),
+                  const Spacer(),
                   GestureDetector(
                     child: CustomTitleImage(
                         image: "assets/images/ambulance.png",
-                        title: applocalization!.ambulance),
+                        title: applocalization.ambulance),
                     onTap: () {
                       Navigator.push(
                           context,
@@ -65,11 +65,11 @@ class EmergencyServices extends StatelessWidget {
                               builder: (context) => const Ambulance()));
                     },
                   ),
-                  Spacer(),
+                  const Spacer(),
                   GestureDetector(
                     child: CustomTitleImage(
                         image: "assets/images/police.png",
-                        title: applocalization!.police),
+                        title: applocalization.police),
                     onTap: () {
                       Navigator.push(
                           context,

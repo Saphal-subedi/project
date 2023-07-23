@@ -16,21 +16,22 @@ class LoginUser extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-          preferredSize: Size.fromHeight(60.0),
+          preferredSize: const Size.fromHeight(60.0),
           child: NavigateAppBar(title: AppLocalizations.of(context)!.login)),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
-            SizedBox(height: 30.0),
+            const SizedBox(height: 30.0),
             CustomTextFormField(
                 hintText: AppLocalizations.of(context)!.userEmail,
                 textController: emailController),
-            SizedBox(height: 30.0),
+            const SizedBox(height: 30.0),
             CustomTextFormField(
+                obsecureText: true,
                 hintText: AppLocalizations.of(context)!.userPassword,
                 textController: passwordController),
-            SizedBox(height: 30.0),
+            const SizedBox(height: 30.0),
             Row(
               children: [
                 Center(
@@ -45,7 +46,7 @@ class LoginUser extends StatelessWidget {
                         padding: const EdgeInsets.all(12.0),
                         child: Text(
                           AppLocalizations.of(context)!.login,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white,
                             fontSize: 20.0,
                           ),
@@ -54,7 +55,7 @@ class LoginUser extends StatelessWidget {
                     ),
                   ),
                 ),
-                Spacer(),
+                const Spacer(),
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15.0),
@@ -65,7 +66,7 @@ class LoginUser extends StatelessWidget {
                       padding: const EdgeInsets.all(12.0),
                       child: Text(
                         AppLocalizations.of(context)!.createuser,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 18.0,
                         ),

@@ -1,4 +1,5 @@
 import 'package:e_woda/features/Administrative%20Solutions/ContactMayor/contact_mayor.dart';
+import 'package:e_woda/features/Administrative%20Solutions/Nagar%20Patro/nagar_calendar.dart';
 import 'package:e_woda/features/Administrative%20Solutions/Queries/queries_page.dart';
 import 'package:e_woda/features/Administrative%20Solutions/Administration/administration.dart';
 import 'package:e_woda/features/Administrative%20Solutions/Financial%20services/financial_services_page.dart';
@@ -14,11 +15,11 @@ class AdministrativeSolutions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
+    // final height = MediaQuery.of(context).size.height;
+    // final width = MediaQuery.of(context).size.width;
     final applocalization = AppLocalizations.of(context);
     return Padding(
-      padding: EdgeInsets.all(15.0),
+      padding: const EdgeInsets.all(15.0),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20.0),
@@ -31,10 +32,10 @@ class AdministrativeSolutions extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsets.fromLTRB(20.0, 0, 0, 10),
+                padding: const EdgeInsets.fromLTRB(20.0, 0, 0, 10),
                 child: Text(
                   applocalization!.administratrativesolutions,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 20.0,
                     fontWeight: FontWeight.w500,
                   ),
@@ -47,7 +48,7 @@ class AdministrativeSolutions extends StatelessWidget {
                     GestureDetector(
                       child: CustomTitleImage(
                           image: "assets/images/administration.png",
-                          title: applocalization!.administration),
+                          title: applocalization.administration),
                       onTap: () {
                         Navigator.push(
                             context,
@@ -55,11 +56,11 @@ class AdministrativeSolutions extends StatelessWidget {
                                 builder: (context) => const Administration()));
                       },
                     ),
-                    SizedBox(width: 20.0),
+                    const SizedBox(width: 20.0),
                     GestureDetector(
                       child: CustomTitleImage(
                           image: "assets/images/financial.png",
-                          title: applocalization!.financialService),
+                          title: applocalization.financialService),
                       onTap: () {
                         Navigator.push(
                             context,
@@ -68,11 +69,11 @@ class AdministrativeSolutions extends StatelessWidget {
                                     const FinancialServices()));
                       },
                     ),
-                    SizedBox(width: 20.0),
+                    const SizedBox(width: 20.0),
                     GestureDetector(
                       child: CustomTitleImage(
                           image: "assets/images/laws and human rights.png",
-                          title: applocalization!.laws),
+                          title: applocalization.laws),
                       onTap: () {
                         Navigator.push(
                             context,
@@ -81,11 +82,11 @@ class AdministrativeSolutions extends StatelessWidget {
                                     const LawAndHumanRights()));
                       },
                     ),
-                    SizedBox(width: 20.0),
+                    const SizedBox(width: 20.0),
                     GestureDetector(
                       child: CustomTitleImage(
                           image: "assets/images/contact-mayor.png",
-                          title: applocalization!.contactMayor),
+                          title: applocalization.contactMayor),
                       onTap: () {
                         Navigator.push(
                             context,
@@ -93,16 +94,28 @@ class AdministrativeSolutions extends StatelessWidget {
                                 builder: (context) => const ContactMayor()));
                       },
                     ),
-                    SizedBox(width: 20.0),
+                    const SizedBox(width: 20.0),
                     GestureDetector(
                       child: CustomTitleImage(
                           image: "assets/images/queries.png",
-                          title: applocalization!.queries),
+                          title: applocalization.queries),
                       onTap: () {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => const Queries()));
+                      },
+                    ),
+                    const SizedBox(width: 20.0),
+                    GestureDetector(
+                      child: CustomTitleImage(
+                          image: "assets/images/nagarpatro.png",
+                          title: applocalization.nagarpatro),
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const NagarCalendar()));
                       },
                     ),
                   ],

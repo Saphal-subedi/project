@@ -1,3 +1,4 @@
+import 'package:e_woda/Common/unordered_list.dart';
 import 'package:flutter/material.dart';
 
 import '../../../Common/custom_appbar.dart';
@@ -13,10 +14,16 @@ class ESifaris extends StatelessWidget {
         preferredSize: const Size.fromHeight(60),
         child: NavigateAppBar(title: AppLocalizations.of(context)!.esifarish),
       ),
-      body: const Padding(
-        padding: EdgeInsets.all(8.0),
-        child:
-            Column(crossAxisAlignment: CrossAxisAlignment.start, children: []),
+      body: const SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(8.0),
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            UnorderedListItem(
+                itemText:
+                    "सिफारिस पेस: वडा प्रतिनिधिहरूले नागरिकता, राहदानी, सम्बन्ध प्रमाणपत्र, इत्यादिको मागको आधारमा नागरिकहरूलाई सिफारिसहरू प्रदान गर्न मिल्ने।"),
+          ]),
+        ),
       ),
     );
   }

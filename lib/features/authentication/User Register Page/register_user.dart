@@ -103,7 +103,7 @@ class RegisterUser extends StatelessWidget {
                             padding: const EdgeInsets.all(12.0),
                             child: Text(
                               AppLocalizations.of(context)!.registerButton,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 20.0,
                               ),
@@ -112,7 +112,7 @@ class RegisterUser extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15.0),
@@ -123,7 +123,7 @@ class RegisterUser extends StatelessWidget {
                           padding: const EdgeInsets.all(12.0),
                           child: Text(
                             AppLocalizations.of(context)!.alreadyHaveAnAccount,
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.white,
                               fontSize: 18.0,
                             ),
