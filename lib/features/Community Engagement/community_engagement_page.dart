@@ -44,7 +44,6 @@ class CommunityEngagement extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    const SizedBox(width: 20.0),
                     GestureDetector(
                       child: CustomTitleImage(
                           image: "assets/images/education.png",
@@ -56,7 +55,7 @@ class CommunityEngagement extends StatelessWidget {
                                 builder: (context) => const Education()));
                       },
                     ),
-                    const SizedBox(width: 20.0),
+                    const SizedBox(width: 10.0),
                     GestureDetector(
                       child: CustomTitleImage(
                           image: "assets/images/health.png",
@@ -68,7 +67,7 @@ class CommunityEngagement extends StatelessWidget {
                                 builder: (context) => const Health()));
                       },
                     ),
-                    const SizedBox(width: 20.0),
+                    const SizedBox(width: 10.0),
                     GestureDetector(
                       child: CustomTitleImage(
                           image: "assets/images/environment.png",
@@ -80,7 +79,7 @@ class CommunityEngagement extends StatelessWidget {
                                 builder: (context) => const Environment()));
                       },
                     ),
-                    const SizedBox(width: 20.0),
+                    const SizedBox(width: 10.0),
                     GestureDetector(
                       child: CustomTitleImage(
                           image: "assets/images/tourism site.png",

@@ -20,6 +20,9 @@ class UnorderedListItem extends StatelessWidget {
         Flexible(
           child: Text(
             itemText,
+            style: const TextStyle(
+              fontSize: 18,
+            ),
           ),
         ),
       ],

@@ -66,9 +66,9 @@ class _NewHomePageState extends State<NewHomePage> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               TopContainer(),
+              WodaPage(),
               AdministrativeSolutions(),
               CommunityEngagement(),
-              WodaPage(),
               OfficialNoticeAndAnnouncements(),
               EmergencyServices(),
               OnlineInformation(),

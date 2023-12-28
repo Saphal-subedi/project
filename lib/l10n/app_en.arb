@@ -10,8 +10,8 @@
       "passwordvalidate":"Password must be at least eight characters long",
 
 
-      "wodaservicetitle":"Select Your woda",
-      "woda":"Woda",
+      "wodaservicetitle":"Select Your ward",
+      "woda":"Ward",
 
 
 
@@ -57,7 +57,7 @@
 
 
 
-"services":"Woda Services",
+"services":"Ward Services",
      "birthRegistration" : "Birth Registration",
                        "birth_title":"Required document for birth registration",
                        "itemone":"Proof of Birth: This can include documents such as a hospital-issued birth certificate, maternity record, or any other document that verifies the birth of the child",
@@ -86,7 +86,7 @@
 
 
 
-  "interactiveservices":"interactiveservices",
+  "interactiveservices":"Interactive services",
       "publicforum" : "Public Forum",
 
    

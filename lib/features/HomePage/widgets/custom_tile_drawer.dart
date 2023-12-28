@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class DrawerContent extends StatelessWidget {
-  DrawerContent({super.key, required this.title, required this.image});
-  String title;
-  String image;
+  const DrawerContent({super.key, required this.title, required this.image});
+  final String title;
+  final String image;
 
   @override
   Widget build(BuildContext context) {

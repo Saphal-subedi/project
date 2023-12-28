@@ -15,13 +15,15 @@ class CustomTitleImage extends StatelessWidget {
       child: Column(
         children: [
           Container(
+            height: height * 0.15,
+            width: width * 0.30,
             decoration: BoxDecoration(
               color: Colors.transparent,
               borderRadius: BorderRadius.circular(15.0),
             ),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
                   height: 0.11 * height,

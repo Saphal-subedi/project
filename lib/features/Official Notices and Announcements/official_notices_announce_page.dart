@@ -38,46 +38,47 @@ class OfficialNoticeAndAnnouncements extends StatelessWidget {
                   ),
                 ),
               ),
-              Row(
-                children: [
-                  const Spacer(),
-                  GestureDetector(
-                    child: CustomTitleImage(
-                        image: "assets/images/Notices.png",
-                        title: applocalization.notice),
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Notice()));
-                    },
-                  ),
-                  const Spacer(),
-                  GestureDetector(
-                    child: CustomTitleImage(
-                        image: "assets/images/suggestion.png",
-                        title: applocalization.suggestions),
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Suggestion()));
-                    },
-                  ),
-                  const Spacer(),
-                  GestureDetector(
-                    child: CustomTitleImage(
-                        image: "assets/images/e-sifaris.png",
-                        title: applocalization.esifarish),
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const ESifaris()));
-                    },
-                  ),
-                  const Spacer(),
-                ],
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    GestureDetector(
+                      child: CustomTitleImage(
+                          image: "assets/images/Notices.png",
+                          title: applocalization.notice),
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Notice()));
+                      },
+                    ),
+                    const SizedBox(width: 10.0),
+                    GestureDetector(
+                      child: CustomTitleImage(
+                          image: "assets/images/suggestion.png",
+                          title: applocalization.suggestions),
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Suggestion()));
+                      },
+                    ),
+                    const SizedBox(width: 10.0),
+                    GestureDetector(
+                      child: CustomTitleImage(
+                          image: "assets/images/e-sifaris.png",
+                          title: applocalization.esifarish),
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const ESifaris()));
+                      },
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

@@ -33,8 +33,7 @@ class ContactMayor extends StatelessWidget {
             SizedBox(height: 10.0),
             Center(child: Text("मेयरको नाम:-")),
             SizedBox(height: 10.0),
-            Center(child: Text("पार्टीको नाम:-")),
-            SizedBox(height: 10.0),
+           
             Center(child: Text("संपर्क नम्बर:-123456789")),
             UnorderedListItem(
                 itemText:

@@ -33,34 +33,34 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Container(
         height: 1 * size,
         width: double.infinity,
-        decoration: BoxDecoration(
-          color: Colors.blue.shade300,
+        decoration: const BoxDecoration(
+          color: Colors.white,
         ),
-        child: const Column(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image(
-              image: AssetImage("assets/images/kathmandu-logo.png"),
+            const Image(
+              image: AssetImage("assets/images/digitalgaue.png"),
               height: 200,
               width: 200,
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 10.0),
             Text(
-              "नागार्जुन",
+              "डिजिटल नागार्जुन",
               style: TextStyle(
-                fontSize: 35.0,
-                color: Colors.white,
+                fontSize: 25.0,
+                color: Colors.blue.shade300,
               ),
             ),
-            SizedBox(height: 10.0),
-            Text(
-              "नगरपालिका",
-              style: TextStyle(
-                fontSize: 35.0,
-                color: Colors.white,
-              ),
-            ),
+            // const SizedBox(height: 20.0),
+            // Text(
+            //   "नागार्जुन",
+            //   style: TextStyle(
+            //     fontSize: 35.0,
+            //     color: Colors.blue.shade300,
+            //   ),
+            // ),
           ],
         ),
       ),

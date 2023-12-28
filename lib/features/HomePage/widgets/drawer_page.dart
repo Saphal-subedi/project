@@ -157,6 +157,14 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     Navigator.pushNamed(context, RouteString.contactMayor);
                   },
                 ),
+                GestureDetector(
+                  child: DrawerContent(
+                      title: applocalization.nagarpatro,
+                      image: "assets/images/nagarpatro.png"),
+                  onTap: () {
+                    Navigator.pushNamed(context, RouteString.nagarCalendar);
+                  },
+                ),
               ],
             ),
           ),

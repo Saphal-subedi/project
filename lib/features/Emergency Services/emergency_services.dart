@@ -39,45 +39,48 @@ class EmergencyServices extends StatelessWidget {
                   ),
                 ),
               ),
-              Row(
-                children: [
-                  const Spacer(),
-                  GestureDetector(
-                    child: CustomTitleImage(
-                        image: "assets/images/helpline-number.png",
-                        title: applocalization.helplineNumber),
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const HelplineNumber()));
-                    },
-                  ),
-                  const Spacer(),
-                  GestureDetector(
-                    child: CustomTitleImage(
-                        image: "assets/images/ambulance.png",
-                        title: applocalization.ambulance),
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Ambulance()));
-                    },
-                  ),
-                  const Spacer(),
-                  GestureDetector(
-                    child: CustomTitleImage(
-                        image: "assets/images/police.png",
-                        title: applocalization.police),
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Police()));
-                    },
-                  ),
-                ],
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    GestureDetector(
+                      child: CustomTitleImage(
+                          image: "assets/images/helpline-number.png",
+                          title: applocalization.helplineNumber),
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const HelplineNumber()));
+                      },
+                    ),
+                    const SizedBox(width: 10.0),
+                    GestureDetector(
+                      child: CustomTitleImage(
+                          image: "assets/images/ambulance.png",
+                          title: applocalization.ambulance),
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Ambulance()));
+                      },
+                    ),
+                    const SizedBox(width: 10.0),
+                    GestureDetector(
+                      child: CustomTitleImage(
+                          image: "assets/images/police.png",
+                          title: applocalization.police),
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Police()));
+                      },
+                    ),
+                    const SizedBox(width: 10.0),
+                  ],
+                ),
               ),
             ],
           ),
