@@ -1,3 +1,4 @@
+import 'package:e_woda/Kyc%20Update/kyc_page.dart';
 import 'package:e_woda/features/Administrative%20Solutions/custom_container_administrativeSolutions.dart_page.dart';
 import 'package:e_woda/features/Community%20Engagement/community_engagement_page.dart';
 import 'package:e_woda/features/Emergency%20Services/emergency_services.dart';
@@ -40,17 +41,36 @@ class _NewHomePageState extends State<NewHomePage> {
         actions: [
           Padding(
             padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
-            child: CircleAvatar(
-                backgroundColor: Colors.orange.shade50,
-                child: IconButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => LoginUser()));
-                    },
-                    icon: const Icon(
-                      Icons.person,
+            child: Row(
+              children: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => KycUpdate()));
+                  },
+                  child: const Text(
+                    'Kyc Update',
+                    style: TextStyle(
                       color: Colors.black,
-                    ))),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 5.0),
+                CircleAvatar(
+                    backgroundColor: Colors.orange.shade50,
+                    child: IconButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => LoginUser()));
+                        },
+                        icon: const Icon(
+                          Icons.person,
+                          color: Colors.black,
+                        ))),
+              ],
+            ),
           ),
         ],
         title: Text(AppLocalizations.of(context)!.name),

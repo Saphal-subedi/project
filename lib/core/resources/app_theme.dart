@@ -4,6 +4,9 @@ class AppTheme {
   static ThemeData appThemeData = ThemeData(
     primaryColor: Colors.red,
     appBarTheme: const AppBarTheme(
+      iconTheme: IconThemeData(
+        color: Colors.white,
+      ),
       elevation: 2.0,
       backgroundColor: Colors.orange,
     ),

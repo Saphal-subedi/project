@@ -1,6 +1,7 @@
+import 'package:e_woda/features/HomePage/home_page.dart';
 import 'package:flutter/material.dart';
 
-import 'features/HomePage/home_page.dart';
+import 'features/authentication/User Login Page/login_user_page.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

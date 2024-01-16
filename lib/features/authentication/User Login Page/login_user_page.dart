@@ -11,6 +11,7 @@ class LoginUser extends StatelessWidget {
 
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final loginformkey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -20,70 +21,89 @@ class LoginUser extends StatelessWidget {
           child: NavigateAppBar(title: AppLocalizations.of(context)!.login)),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
-        child: Column(
-          children: [
-            const SizedBox(height: 30.0),
-            CustomTextFormField(
-                hintText: AppLocalizations.of(context)!.userEmail,
-                textController: emailController),
-            const SizedBox(height: 30.0),
-            CustomTextFormField(
-                obsecureText: true,
-                hintText: AppLocalizations.of(context)!.userPassword,
-                textController: passwordController),
-            const SizedBox(height: 30.0),
-            Row(
-              children: [
-                Center(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15.0),
-                      color: Colors.blue.shade300,
-                    ),
-                    child: TextButton(
-                      onPressed: (() {}),
-                      child: Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: Text(
-                          AppLocalizations.of(context)!.login,
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 20.0,
+        child: Form(
+          key: loginformkey,
+          child: Column(
+            children: [
+              const SizedBox(height: 30.0),
+              CustomTextFormField(
+                  validate: ((value) {
+                    final emailRegex = RegExp(
+                        r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$");
+                    if (!emailRegex.hasMatch(value.toString())) {
+                      return AppLocalizations.of(context)!.emailvalidate;
+                    }
+                    return null;
+                  }),
+                  hintText: AppLocalizations.of(context)!.userEmail,
+                  textController: emailController),
+              const SizedBox(height: 30.0),
+              CustomTextFormField(
+                  validate: ((value) {
+                    if (value.toString().length < 8) {
+                      return AppLocalizations.of(context)!.passwordvalidate;
+                    }
+                    return null;
+                  }),
+                  obsecureText: true,
+                  hintText: AppLocalizations.of(context)!.userPassword,
+                  textController: passwordController),
+              const SizedBox(height: 30.0),
+              Row(
+                children: [
+                  Center(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15.0),
+                        color: Colors.blue.shade300,
+                      ),
+                      child: TextButton(
+                        onPressed: (() {
+                          if (loginformkey.currentState?.validate() ?? false) {}
+                        }),
+                        child: Padding(
+                          padding: const EdgeInsets.all(12.0),
+                          child: Text(
+                            AppLocalizations.of(context)!.login,
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 20.0,
+                            ),
                           ),
                         ),
                       ),
                     ),
                   ),
-                ),
-                const Spacer(),
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15.0),
-                    color: Colors.blue.shade300,
-                  ),
-                  child: TextButton(
-                    child: Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Text(
-                        AppLocalizations.of(context)!.createuser,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 18.0,
+                  const Spacer(),
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15.0),
+                      color: Colors.blue.shade300,
+                    ),
+                    child: TextButton(
+                      child: Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: Text(
+                          AppLocalizations.of(context)!.createuser,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 18.0,
+                          ),
                         ),
                       ),
+                      onPressed: () {
+                        Navigator.pop(context);
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => RegisterUser()));
+                      },
                     ),
-                    onPressed: () {
-                      Navigator.pop(context);
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => RegisterUser()));
-                    },
                   ),
-                ),
-              ],
-            ),
-          ],
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

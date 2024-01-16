@@ -1,23 +1,48 @@
-// ignore_for_file: use_build_context_synchronously
+// ignore_for_file: use_build_context_synchronously, unused_local_variable, prefer_const_declarations
 
 import 'package:e_woda/Common/custom_appbar.dart';
 
-import 'package:e_woda/features/authentication/User%20Register%20Page/Drop%20Down%20Menu/drop_down_menu.dart';
 import 'package:e_woda/Common/custom_textformfield.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localization.dart';
 
 import '../User Login Page/login_user_page.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class RegisterUser extends StatelessWidget {
   RegisterUser({super.key});
-  final nameController = TextEditingController();
-  final bloodGroupController = TextEditingController();
+  final firstnameController = TextEditingController();
+  final middlenameController = TextEditingController();
+  final surnameCOntroller = TextEditingController();
+  final usernameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final phoneController = TextEditingController();
   final formkey = GlobalKey<FormState>();
+  final String apiUrl =
+      "https://localhost:44358/api/app/user-registration/user-registration";
+  Future<void> postData() async {
+    final response = await http.post(Uri.parse(apiUrl),
+        headers: <String, String>{
+          'Content-Type': 'multipart/form-data',
+          'Accept': '*/*',
+        },
+        body: jsonEncode(
+          <String, dynamic>{
+            "userName": usernameController.text,
+            "userEmail": emailController.text,
+            "password": passwordController.text,
+            "phoneNumber": "+977${phoneController.text}",
+            "name": firstnameController.text,
+            "middleName": middlenameController.text,
+            "surname": surnameCOntroller.text,
+          },
+        ));
+    print("Result is------------------------");
+    print(response.body);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,8 +59,8 @@ class RegisterUser extends StatelessWidget {
               child: Column(children: [
                 const SizedBox(height: 30.0),
                 CustomTextFormField(
-                  hintText: AppLocalizations.of(context)!.userName,
-                  textController: nameController,
+                  hintText: "UserName",
+                  textController: usernameController,
                   validate: ((value) {
                     final nameRegex =
                         RegExp(r"^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$");
@@ -47,21 +72,7 @@ class RegisterUser extends StatelessWidget {
                 ),
                 const SizedBox(height: 30.0),
                 CustomTextFormField(
-                  hintText: AppLocalizations.of(context)!.phone,
-                  textController: phoneController,
-                  textInputType: TextInputType.number,
-                  validate: ((value) {
-                    final numberRegex = RegExp(
-                        r"^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]+$");
-                    if (!numberRegex.hasMatch(value.toString())) {
-                      return AppLocalizations.of(context)!.phonevalidate;
-                    }
-                    return null;
-                  }),
-                ),
-                const SizedBox(height: 30.0),
-                CustomTextFormField(
-                  hintText: AppLocalizations.of(context)!.userEmail,
+                  hintText: "Email",
                   textController: emailController,
                   textInputType: TextInputType.emailAddress,
                   validate: ((value) {
@@ -75,7 +86,7 @@ class RegisterUser extends StatelessWidget {
                 ),
                 const SizedBox(height: 30.0),
                 CustomTextFormField(
-                  hintText: AppLocalizations.of(context)!.userPassword,
+                  hintText: "Password",
                   textController: passwordController,
                   obsecureText: true,
                   textInputType: TextInputType.visiblePassword,
@@ -87,9 +98,62 @@ class RegisterUser extends StatelessWidget {
                   }),
                 ),
                 const SizedBox(height: 30.0),
-                const CustomDropDownButton(),
+                CustomTextFormField(
+                  hintText: AppLocalizations.of(context)!.phone,
+                  textController: phoneController,
+                  textInputType: TextInputType.number,
+                  validate: ((value) {
+                    final numberRegex = RegExp(r'^[0-9]{10}$');
+                    // RegExp(
+                    //     r"^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]+$");
+                    if (!numberRegex.hasMatch(value.toString())) {
+                      return "Please Enter valid number";
+                    }
+                    return null;
+                  }),
+                ),
+                const SizedBox(height: 30.0),
+                CustomTextFormField(
+                  hintText: "FirstName",
+                  textController: firstnameController,
+                  validate: ((value) {
+                    final nameRegex =
+                        RegExp(r"^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$");
+                    if (!nameRegex.hasMatch(value.toString())) {
+                      return AppLocalizations.of(context)!.usernamevalidate;
+                    }
+                    return null;
+                  }),
+                ),
+                const SizedBox(height: 30.0),
+                CustomTextFormField(
+                  hintText: "MiddleName",
+                  textController: middlenameController,
+                  validate: ((value) {
+                    final nameRegex =
+                        RegExp(r"^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$");
+                    if (!nameRegex.hasMatch(value.toString())) {
+                      return AppLocalizations.of(context)!.usernamevalidate;
+                    }
+                    return null;
+                  }),
+                ),
+                const SizedBox(height: 30.0),
+                CustomTextFormField(
+                  hintText: "SurName",
+                  textController: surnameCOntroller,
+                  validate: ((value) {
+                    final nameRegex =
+                        RegExp(r"^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$");
+                    if (!nameRegex.hasMatch(value.toString())) {
+                      return AppLocalizations.of(context)!.usernamevalidate;
+                    }
+                    return null;
+                  }),
+                ),
                 const SizedBox(height: 30.0),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Center(
                       child: Container(
@@ -98,7 +162,11 @@ class RegisterUser extends StatelessWidget {
                           color: Colors.blue.shade300,
                         ),
                         child: TextButton(
-                          onPressed: (() {}),
+                          onPressed: (() async {
+                            if (formkey.currentState?.validate() ?? false) {
+                              await postData();
+                            }
+                          }),
                           child: Padding(
                             padding: const EdgeInsets.all(12.0),
                             child: Text(
@@ -112,20 +180,20 @@ class RegisterUser extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const Spacer(),
+                    const SizedBox(width: 10),
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15.0),
                         color: Colors.blue.shade300,
                       ),
                       child: TextButton(
-                        child: Padding(
-                          padding: const EdgeInsets.all(12.0),
+                        child: const Padding(
+                          padding: EdgeInsets.all(12.0),
                           child: Text(
-                            AppLocalizations.of(context)!.alreadyHaveAnAccount,
-                            style: const TextStyle(
+                            "Login",
+                            style: TextStyle(
                               color: Colors.white,
-                              fontSize: 18.0,
+                              fontSize: 20.0,
                             ),
                           ),
                         ),
@@ -140,146 +208,10 @@ class RegisterUser extends StatelessWidget {
                     ),
                   ],
                 ),
-
-//                 Row(
-//                   children: [
-//                     Center(
-//                       child: Container(
-//                         decoration: BoxDecoration(
-//                           borderRadius: BorderRadius.circular(15.0),
-//                           color: Colors.blue.shade300,
-//                         ),
-//                         child: TextButton(
-//                           onPressed: (() async {
-//                             if (formkey.currentState!.validate()) {
-// //                               print("NAME CONTROLLER IS SHOWN");
-// //                               print(nameController.text.trim());
-// //                               final message = await FirestoreServices()
-// //                                   .createUser(RegisterUserModel(
-// //                                       Name: nameController.text.toString(),
-// //                                       Phone: phoneController.text.toString(),
-// //                                       bloodGroup:
-// //                                           bloodGroupController.text.toString(),
-// //                                       email: emailController.text.toString(),
-// //                                       password:
-// //                                           passwordController.text.toString()));
-// //                               CustomSnackBar(context: context, message: message)
-// //                                   .snackbar();
-// // ========
-
-//                               Center(
-//                                 child: Container(
-//                                   decoration: BoxDecoration(
-//                                     borderRadius: BorderRadius.circular(15.0),
-//                                     color: Colors.blue.shade300,
-//                                   ),
-//                                   child: TextButton(
-//                                     onPressed: (() async {
-//                                       if (formkey.currentState!.validate()) {
-// //                           final message = await FirestoreServices().createUser(
-// //                               RegisterUserModel(
-// //                                   name: nameController.text.toString(),
-// //                                   phone: phoneController.text.toString(),
-// //                                   bloodGroup:
-// //                                       bloodGroupController.text.toString(),
-// //                                   email: emailController.text.toString(),
-// //                                   password:
-// //                                       passwordController.text.toString()));
-
-// //                           customSnackbar(context, message);
-// // >>>>>>>> 33199bb4326b88636056f8972d9b98c9865841e9:lib/features/authentication/User Register Page/register_user.dart
-
-//                                         Navigator.pop(context);
-//                                         Navigator.push(
-//                                             context,
-//                                             MaterialPageRoute(
-//                                                 builder: (context) =>
-//                                                     LoginUser()));
-//                                       }
-//                                     }),
-//                                     child: Padding(
-//                                       padding: const EdgeInsets.all(12.0),
-//                                       child: Text(
-//                                         AppLocalizations.of(context)!
-//                                             .registerButton,
-//                                         style: const TextStyle(
-//                                           color: Colors.white,
-//                                           fontSize: 20.0,
-//                                         ),
-//                                       ),
-//                                     ),
-//                                   ),
-//                                 ),
-//                               );
-//                               const Spacer();
-//                               Container(
-//                                 decoration: BoxDecoration(
-//                                   borderRadius: BorderRadius.circular(15.0),
-//                                   color: Colors.blue.shade300,
-//                                 ),
-//                                 child: TextButton(
-//                                   child: Padding(
-//                                     padding: const EdgeInsets.all(12.0),
-//                                     child: Text(
-//                                       AppLocalizations.of(context)!
-//                                           .alreadyHaveAnAccount,
-//                                       style: const TextStyle(
-//                                         color: Colors.white,
-//                                         fontSize: 18.0,
-//                                       ),
-//                                     ),
-//                                   ),
-//                                   onPressed: () {
-//                                     Navigator.pop(context);
-//                                     Navigator.push(
-//                                         context,
-//                                         MaterialPageRoute(
-//                                             builder: (context) => LoginUser()));
-//                                   },
-//                                 ),
-//                               );
-//                             }
-//                           }),
-//                           child: Padding(
-//                             padding: const EdgeInsets.all(12.0),
-//                             child: Text(
-//                               AppLocalizations.of(context)!.registerButton,
-//                               style: const TextStyle(
-//                                 color: Colors.white70,
-//                                 fontSize: 20.0,
-//                               ),
-//                             ),
-//                           ),
-//                         ),
-//                       ),
-//                     ),
-//                     const SizedBox(height: 30.0),
-//                     Row(
-//                       children: [
-//                         const Spacer(),
-//                         TextButton(
-//                           child: Text(
-//                             AppLocalizations.of(context)!.alreadyHaveAnAccount,
-//                             style: const TextStyle(
-//                               color: Colors.black,
-//                               fontSize: 18.0,
-//                             ),
-//                           ),
-//                           onPressed: () {
-//                             Navigator.pop(context);
-//                             Navigator.push(
-//                                 context,
-//                                 MaterialPageRoute(
-//                                     builder: (context) => LoginUser()));
-//                           },
-//                         ),
-//                       ],
-//                     ),
-//                   ],
-//                 ),
               ]),
             ),
           ),
         ));
+    // ignore: dead_code
   }
 }
