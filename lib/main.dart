@@ -1,5 +1,6 @@
 import 'package:e_woda/Shared%20Preferences/shared_preferences_services.dart';
 import 'package:e_woda/SuperAdminPage/super_admin.dart';
+import 'package:e_woda/YYY/prasiddha.dart';
 import 'package:e_woda/core/resources/app_theme.dart';
 import 'package:e_woda/core/routes/routes_config.dart';
 import 'package:e_woda/features/authentication/User%20Login%20Page/login_user_page.dart';
@@ -67,7 +68,7 @@ class _MyAppState extends State<MyApp> {
         supportedLocales: AppLocalizations.supportedLocales,
         locale: checkLang(),
         theme: AppTheme.appThemeData,
-        home: SuperAdminPage(),
+        home: SplashScreen(),
         debugShowCheckedModeBanner: false,
         onGenerateRoute: AppRoutes.generateRoutes,
       ),

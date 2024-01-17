@@ -6,6 +6,7 @@ import 'package:e_woda/Common/custom_textformfield.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localization.dart';
+import 'package:logger/logger.dart';
 
 import '../User Login Page/login_user_page.dart';
 import 'package:http/http.dart' as http;
@@ -22,7 +23,7 @@ class RegisterUser extends StatelessWidget {
   final phoneController = TextEditingController();
   final formkey = GlobalKey<FormState>();
   final String apiUrl =
-      "https://localhost:44358/api/app/user-registration/user-registration";
+      "https://192.168.101.3:44358/api/app/user-registration/user-registration";
   Future<void> postData() async {
     final response = await http.post(Uri.parse(apiUrl),
         headers: <String, String>{
@@ -37,10 +38,10 @@ class RegisterUser extends StatelessWidget {
             "phoneNumber": "+977${phoneController.text}",
             "name": firstnameController.text,
             "middleName": middlenameController.text,
-            "surname": surnameCOntroller.text,
+            "surname": surnameCOntroller.text
           },
         ));
-    print("Result is------------------------");
+    Logger().d("Result is------------------------");
     print(response.body);
   }
 
@@ -163,7 +164,8 @@ class RegisterUser extends StatelessWidget {
                         ),
                         child: TextButton(
                           onPressed: (() async {
-                            if (formkey.currentState?.validate() ?? false) {
+                            Logger().e("Result is------------------------");
+                            if (formkey.currentState!.validate()) {
                               await postData();
                             }
                           }),
