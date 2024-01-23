@@ -12,6 +12,8 @@ import 'package:e_woda/features/authentication/User%20Login%20Page/login_user_pa
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localization.dart';
 
+import '../../Query Search/alogrithm_page.dart';
+import '../../SuperAdminPage/super_admin.dart';
 import '../Interactive Services/interactive_services_page.dart';
 import '../Official Notices and Announcements/official_notices_announce_page.dart';
 import '../Online Information/online_information_page.dart';
@@ -60,10 +62,7 @@ class _NewHomePageState extends State<NewHomePage> {
                     backgroundColor: Colors.orange.shade50,
                     child: IconButton(
                         onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => LoginUser()));
+                          showMultiSelectDialog(context);
                         },
                         icon: const Icon(
                           Icons.person,
@@ -87,6 +86,7 @@ class _NewHomePageState extends State<NewHomePage> {
             children: [
               TopContainer(),
               WodaPage(),
+              QuerySearcher(),
               AdministrativeSolutions(),
               CommunityEngagement(),
               OfficialNoticeAndAnnouncements(),

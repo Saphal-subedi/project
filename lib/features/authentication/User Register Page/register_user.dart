@@ -1,8 +1,10 @@
 // ignore_for_file: use_build_context_synchronously, unused_local_variable, prefer_const_declarations
 
 import 'package:e_woda/Common/custom_appbar.dart';
+import 'package:e_woda/Common/custom_snackbar.dart';
 
 import 'package:e_woda/Common/custom_textformfield.dart';
+import 'package:e_woda/y_urlpage_list.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localization.dart';
@@ -22,36 +24,42 @@ class RegisterUser extends StatelessWidget {
   final passwordController = TextEditingController();
   final phoneController = TextEditingController();
   final formkey = GlobalKey<FormState>();
-  final String apiUrl =
-      "https://192.168.101.3:44358/api/app/user-registration/user-registration";
-  Future<void> postData() async {
-    final response = await http.post(Uri.parse(apiUrl),
-        headers: <String, String>{
-          'Content-Type': 'multipart/form-data',
-          'Accept': '*/*',
-        },
-        body: jsonEncode(
-          <String, dynamic>{
-            "userName": usernameController.text,
-            "userEmail": emailController.text,
-            "password": passwordController.text,
-            "phoneNumber": "+977${phoneController.text}",
-            "name": firstnameController.text,
-            "middleName": middlenameController.text,
-            "surname": surnameCOntroller.text
+
+  Future<bool> postData() async {
+    try {
+      final response = await http.post(
+          Uri.parse(
+              "https://hedgehog-ready-daily.ngrok-free.app/api/app/user-registration/user-registration"),
+          headers: <String, String>{
+            'Content-Type': 'application/json',
+            'Accept': '*/*',
           },
-        ));
-    Logger().d("Result is------------------------");
-    print(response.body);
+          body: jsonEncode(
+            <String, dynamic>{
+              "userName": usernameController.text,
+              "userEmail": emailController.text,
+              "password": passwordController.text,
+              "phoneNumber": "+977${phoneController.text}",
+              "name": firstnameController.text,
+              "middleName": middlenameController.text,
+              "surname": surnameCOntroller.text
+            },
+          ));
+
+      return true;
+    } catch (e) {
+      return false;
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: PreferredSize(
-            preferredSize: const Size.fromHeight(60.0),
-            child: NavigateAppBar(
-                title: AppLocalizations.of(context)!.registerUser)),
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text("Register User"),
+          backgroundColor: Colors.blue.shade300,
+        ),
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(20.0),
@@ -92,9 +100,6 @@ class RegisterUser extends StatelessWidget {
                   obsecureText: true,
                   textInputType: TextInputType.visiblePassword,
                   validate: ((value) {
-                    if (value.toString().length < 8) {
-                      return AppLocalizations.of(context)!.passwordvalidate;
-                    }
                     return null;
                   }),
                 ),
@@ -131,11 +136,6 @@ class RegisterUser extends StatelessWidget {
                   hintText: "MiddleName",
                   textController: middlenameController,
                   validate: ((value) {
-                    final nameRegex =
-                        RegExp(r"^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$");
-                    if (!nameRegex.hasMatch(value.toString())) {
-                      return AppLocalizations.of(context)!.usernamevalidate;
-                    }
                     return null;
                   }),
                 ),
@@ -164,9 +164,19 @@ class RegisterUser extends StatelessWidget {
                         ),
                         child: TextButton(
                           onPressed: (() async {
-                            Logger().e("Result is------------------------");
                             if (formkey.currentState!.validate()) {
-                              await postData();
+                              var success = await postData();
+                              Logger().e("The result is $success");
+                              if (success) {
+                                customSnackbar(context, "Register Successful");
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => LoginUser()));
+                              } else {
+                                customSnackbar(
+                                    context, "Not registered try again");
+                              }
                             }
                           }),
                           child: Padding(

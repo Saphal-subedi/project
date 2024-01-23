@@ -1,3 +1,4 @@
+import 'package:e_woda/HamroServices/birth_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localization.dart';
 
@@ -60,8 +61,7 @@ class WodaPage extends StatelessWidget {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) =>
-                                            const BirthRegistration()));
+                                        builder: (context) => BirthPage()));
                               },
                             ),
                             const SizedBox(width: 10.0),

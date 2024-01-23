@@ -50,13 +50,16 @@ dependencies:
   nepali_date_picker: ^5.3.1
   pdf: ^3.10.4
   open_file_plus: ^3.4.1
-  path_provider: ^2.0.15
+  path_provider: ^2.1.2
   permission_handler: ^10.4.2
   syncfusion_flutter_pdfviewer: ^20.4.54
   clean_nepali_calendar: ^2.0.1
   logger: ^2.0.2+1
   openid_client: ^0.4.8
-  url_launcher: ^6.2.3
+  image_picker: ^1.0.7
+  path: ^1.8.3
+  dio: ^5.4.0
+  
   
  
 

@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 class AppTheme {
   static ThemeData appThemeData = ThemeData(
-    primaryColor: Colors.red,
+    primaryColor: Colors.blue.shade300,
     appBarTheme: const AppBarTheme(
       iconTheme: IconThemeData(
         color: Colors.white,
       ),
       elevation: 2.0,
-      backgroundColor: Colors.orange,
+      backgroundColor: Colors.blue,
     ),
     useMaterial3: true,
     iconTheme: const IconThemeData(

@@ -5,6 +5,7 @@ import 'package:e_woda/SuperAdminPage/admin_kyc.dart';
 import 'package:e_woda/SuperAdminPage/admin_marriage.dart';
 import 'package:e_woda/SuperAdminPage/admin_news.dart';
 import 'package:e_woda/SuperAdminPage/admin_userinfo.dart';
+import 'package:e_woda/features/authentication/User%20Login%20Page/login_user_page.dart';
 import 'package:flutter/material.dart';
 
 class SuperAdminPage extends StatelessWidget {
@@ -25,10 +26,7 @@ class SuperAdminPage extends StatelessWidget {
                     backgroundColor: Colors.orange.shade50,
                     child: IconButton(
                         onPressed: () {
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //         builder: (context) => LoginUser()));
+                          showMultiSelectDialog(context);
                         },
                         icon: const Icon(
                           Icons.person,
@@ -69,11 +67,27 @@ class SuperAdminPage extends StatelessWidget {
                       child: SizedBox(
                         height: height * 0.25,
                         width: widhth * 0.45,
-                        child: const Center(
-                          child: Text(
-                            "NEWS",
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 18.0),
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              SizedBox(
+                                height: 100,
+                                width: 100,
+                                child: Center(
+                                  child: Image.asset(
+                                    "assets/images/Notices.png",
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                              Text(
+                                "Notices",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 22.0),
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -95,11 +109,27 @@ class SuperAdminPage extends StatelessWidget {
                       child: SizedBox(
                         height: height * 0.25,
                         width: widhth * 0.45,
-                        child: const Center(
-                          child: Text(
-                            "KYC",
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 18.0),
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              SizedBox(
+                                height: 100,
+                                width: 100,
+                                child: Center(
+                                  child: Image.asset(
+                                    "assets/images/kyc1.png",
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                              Text(
+                                "KYC Info",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 22.0),
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -127,11 +157,27 @@ class SuperAdminPage extends StatelessWidget {
                       child: SizedBox(
                         height: height * 0.25,
                         width: widhth * 0.45,
-                        child: const Center(
-                          child: Text(
-                            "UserInfo",
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 18.0),
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              SizedBox(
+                                height: 100,
+                                width: 100,
+                                child: Center(
+                                  child: Image.asset(
+                                    "assets/images/public-forum.png",
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                              Text(
+                                "User Info",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 22.0),
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -153,11 +199,27 @@ class SuperAdminPage extends StatelessWidget {
                       child: SizedBox(
                         height: height * 0.25,
                         width: widhth * 0.45,
-                        child: const Center(
-                          child: Text(
-                            "Invite Admin",
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 18.0),
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              SizedBox(
+                                height: 100,
+                                width: 100,
+                                child: Center(
+                                  child: Image.asset(
+                                    "assets/images/inviteadmin.png",
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                              Text(
+                                "Invite Admin",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 22.0),
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -185,11 +247,27 @@ class SuperAdminPage extends StatelessWidget {
                       child: SizedBox(
                         height: height * 0.25,
                         width: widhth * 0.29,
-                        child: const Center(
-                          child: Text(
-                            "Birth",
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 18.0),
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              SizedBox(
+                                height: 75,
+                                width: 75,
+                                child: Center(
+                                  child: Image.asset(
+                                    "assets/images/birth-regristration.png",
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                              Text(
+                                "Birth",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 22.0),
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -211,11 +289,27 @@ class SuperAdminPage extends StatelessWidget {
                       child: SizedBox(
                         height: height * 0.25,
                         width: widhth * 0.29,
-                        child: const Center(
-                          child: Text(
-                            "Marriage",
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 18.0),
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              SizedBox(
+                                height: 75,
+                                width: 75,
+                                child: Center(
+                                  child: Image.asset(
+                                    "assets/images/marriage-registration.png",
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                              Text(
+                                "Marriage",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 22.0),
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -237,11 +331,27 @@ class SuperAdminPage extends StatelessWidget {
                       child: SizedBox(
                         height: height * 0.25,
                         width: widhth * 0.29,
-                        child: const Center(
-                          child: Text(
-                            "Death",
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 20.0),
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              SizedBox(
+                                height: 75,
+                                width: 75,
+                                child: Center(
+                                  child: Image.asset(
+                                    "assets/images/death-registration.png",
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                              Text(
+                                "Death",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 22.0),
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -255,4 +365,49 @@ class SuperAdminPage extends StatelessWidget {
       ),
     );
   }
+}
+
+void showMultiSelectDialog(BuildContext context) {
+  showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Do you really want to logout'),
+          content: Container(
+            height: MediaQuery.of(context).size.height * 0.15,
+            child: Column(
+              children: [
+                TextButton(
+                    style: ButtonStyle(
+                      side: MaterialStateProperty.all(BorderSide(
+                        color: Colors.blue, // Border color
+                        width: 2.0, // Border width
+                      )),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context);
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => LoginUser(),
+                        ),
+                      );
+                    },
+                    child: Text("Yes")),
+                TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    style: ButtonStyle(
+                      side: MaterialStateProperty.all(BorderSide(
+                        color: Colors.blue, // Border color
+                        width: 2.0, // Border width
+                      )),
+                    ),
+                    child: Text("Cancel")),
+              ],
+            ),
+          ),
+        );
+      });
 }

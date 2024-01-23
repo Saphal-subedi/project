@@ -16,7 +16,6 @@ class AdminDeath extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.blue.shade300,
       ),
-      floatingActionButton: FloatingActionButton(onPressed: () {}),
     );
   }
 }
