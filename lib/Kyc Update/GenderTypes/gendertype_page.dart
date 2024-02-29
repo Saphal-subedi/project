@@ -4,6 +4,7 @@ import 'package:e_woda/y_urlpage_list.dart';
 import 'package:flutter/material.dart';
 
 var selectedGenderId;
+var selectedGenderValue;
 
 class GenderTypeDropDownButton extends StatefulWidget {
   const GenderTypeDropDownButton({super.key});
@@ -29,8 +30,6 @@ class GenderTypeDropDownButtonState extends State<GenderTypeDropDownButton> {
 
     return data;
   }
-
-  var selectedGenderValue;
 
   @override
   Widget build(BuildContext context) {

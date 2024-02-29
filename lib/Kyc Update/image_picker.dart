@@ -5,6 +5,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:logger/logger.dart';
 
 var imageValue;
+XFile? image;
 
 class ImagePickerScreen extends StatefulWidget {
   @override
@@ -12,12 +13,13 @@ class ImagePickerScreen extends StatefulWidget {
 }
 
 class _ImagePickerScreenState extends State<ImagePickerScreen> {
-  static File? image;
   Future<void> getImageBytes(File file) async {
     var imageBytes = await file.readAsBytes();
     imageValue = imageBytes;
     print(imageValue);
   }
+
+  String newImg = '';
 
   Future _getImageFromGallery() async {
     final picker = ImagePicker();
@@ -25,10 +27,12 @@ class _ImagePickerScreenState extends State<ImagePickerScreen> {
 
     if (pickedFile != null) {
       setState(() {
-        image = File(pickedFile.path);
+        image = pickedFile;
+        newImg = image!.path;
+        Logger().d('newImg is $newImg');
       });
     }
-    getImageBytes(image!);
+    // getImageBytes(image);
   }
 
   Future _getImageFromCamera() async {
@@ -37,16 +41,17 @@ class _ImagePickerScreenState extends State<ImagePickerScreen> {
 
     if (pickedFile != null) {
       setState(() {
-        image = File(pickedFile.path);
+        image = pickedFile;
+        newImg = image!.path;
+        Logger().d(newImg);
       });
     }
-    getImageBytes(image!);
+    //  getImageBytes(image!);
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.red,
+    return SizedBox(
       height: MediaQuery.of(context).size.height * 0.4,
       width: double.infinity,
       child: Center(
@@ -60,11 +65,13 @@ class _ImagePickerScreenState extends State<ImagePickerScreen> {
                       Center(child: Text('Please Select your Image.')),
                     ],
                   )
-                : Image.file(image!,
-                    height: MediaQuery.of(context).size.height * 0.30,
-                    width: MediaQuery.of(context).size.width * 1,
-                    fit: BoxFit.cover),
-            const SizedBox(height: 20),
+                : AspectRatio(
+                    aspectRatio: 16 / 9,
+                    child: Image.file(
+                      File(image!.path),
+                      fit: BoxFit.fill,
+                    ),
+                  ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [

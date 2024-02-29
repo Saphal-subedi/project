@@ -1,4 +1,5 @@
 import 'package:e_woda/HamroServices/birth_page.dart';
+import 'package:e_woda/HamroServices/marriage_page.dart';
 import 'package:e_woda/Shared%20Preferences/shared_preferences_services.dart';
 import 'package:e_woda/SuperAdminPage/super_admin.dart';
 import 'package:e_woda/YYY/prasiddha.dart';
@@ -70,7 +71,7 @@ class _MyAppState extends State<MyApp> {
         supportedLocales: AppLocalizations.supportedLocales,
         locale: checkLang(),
         theme: AppTheme.appThemeData,
-        home: SuperAdminPage(),
+        home: SplashScreen(),
         debugShowCheckedModeBanner: false,
         onGenerateRoute: AppRoutes.generateRoutes,
       ),

@@ -49,6 +49,7 @@ class CustomImageTitleServices extends StatelessWidget {
               style: const TextStyle(
                 fontSize: 12.0,
                 fontWeight: FontWeight.w400,
+                color: Color(0xFFF4F5FC),
               ),
               textAlign: TextAlign.center,
             ),

@@ -85,7 +85,7 @@ class SuperAdminPage extends StatelessWidget {
                               Text(
                                 "Notices",
                                 style: TextStyle(
-                                    color: Colors.white, fontSize: 22.0),
+                                    color: Colors.white, fontSize: 18.0),
                               ),
                             ],
                           ),
@@ -99,7 +99,7 @@ class SuperAdminPage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const AdminKyc(),
+                          builder: (context) => AdminKyc(),
                         ),
                       );
                     },
@@ -127,7 +127,7 @@ class SuperAdminPage extends StatelessWidget {
                               Text(
                                 "KYC Info",
                                 style: TextStyle(
-                                    color: Colors.white, fontSize: 22.0),
+                                    color: Colors.white, fontSize: 18.0),
                               ),
                             ],
                           ),
@@ -147,7 +147,7 @@ class SuperAdminPage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const AdminUserInfo(),
+                          builder: (context) => AdminUserInfo(),
                         ),
                       );
                     },
@@ -175,7 +175,7 @@ class SuperAdminPage extends StatelessWidget {
                               Text(
                                 "User Info",
                                 style: TextStyle(
-                                    color: Colors.white, fontSize: 22.0),
+                                    color: Colors.white, fontSize: 18.0),
                               ),
                             ],
                           ),
@@ -217,7 +217,7 @@ class SuperAdminPage extends StatelessWidget {
                               Text(
                                 "Invite Admin",
                                 style: TextStyle(
-                                    color: Colors.white, fontSize: 22.0),
+                                    color: Colors.white, fontSize: 18.0),
                               ),
                             ],
                           ),
@@ -265,7 +265,7 @@ class SuperAdminPage extends StatelessWidget {
                               Text(
                                 "Birth",
                                 style: TextStyle(
-                                    color: Colors.white, fontSize: 22.0),
+                                    color: Colors.white, fontSize: 15.0),
                               ),
                             ],
                           ),
@@ -279,7 +279,7 @@ class SuperAdminPage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const AdminMarriage(),
+                          builder: (context) => AdminMarriage(),
                         ),
                       );
                     },
@@ -307,7 +307,7 @@ class SuperAdminPage extends StatelessWidget {
                               Text(
                                 "Marriage",
                                 style: TextStyle(
-                                    color: Colors.white, fontSize: 22.0),
+                                    color: Colors.white, fontSize: 15.0),
                               ),
                             ],
                           ),
@@ -349,7 +349,7 @@ class SuperAdminPage extends StatelessWidget {
                               Text(
                                 "Death",
                                 style: TextStyle(
-                                    color: Colors.white, fontSize: 22.0),
+                                    color: Colors.white, fontSize: 15.0),
                               ),
                             ],
                           ),

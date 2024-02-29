@@ -97,7 +97,7 @@ class _AdminNewsState extends State<AdminNews> {
                         Text("${data.id}"),
                         Row(
                           children: [
-                            Expanded(child: Text("Descreption:")),
+                            Expanded(child: Text("Description:")),
                             Expanded(child: Text("${data.description}")),
                           ],
                         ),

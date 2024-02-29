@@ -68,7 +68,7 @@ class _TopContainerState extends State<TopContainer> {
                     margin: const EdgeInsets.symmetric(horizontal: 5.0),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15.0),
-                      color: Colors.blue.shade300,
+                      color: Color(0xFF39415D),
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(10.0),
@@ -79,11 +79,14 @@ class _TopContainerState extends State<TopContainer> {
                           Text(
                             "Title:-  ${i.title}",
                             style: const TextStyle(
-                                fontSize: 15.0, color: Colors.white),
+                                fontSize: 10.0, color: Color(0xFFF4F5FC)),
                           ),
                           Text(
                             "${i.description}",
-                            style: const TextStyle(color: Colors.white),
+                            style: const TextStyle(
+                              color: Color(0xFFF4F5FC),
+                              fontSize: 9,
+                            ),
                           )
                         ],
                       ),

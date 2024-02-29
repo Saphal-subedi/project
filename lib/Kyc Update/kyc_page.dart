@@ -1,14 +1,14 @@
 // ignore_for_file: use_build_context_synchronously
 
-import 'dart:convert';
-
 import 'package:e_woda/Common/custom_appbar.dart';
+import 'package:e_woda/Common/custom_snackbar.dart';
 
 import 'package:e_woda/Common/custom_textformfield.dart';
 import 'package:e_woda/y_urlpage_list.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localization.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:logger/logger.dart';
 
 import '../features/authentication/User Login Page/login_user_page.dart';
@@ -24,37 +24,119 @@ import 'image_picker.dart';
 class KycUpdate extends StatelessWidget {
   Future<void> postKyc() async {
     Logger().e("UserId:=$UserId");
-    final response = await http.put(
-        Uri.parse(
-            "https://hedgehog-ready-daily.ngrok-free.app/api/app/user-management"),
-        headers: <String, String>{
-          'Content-Type': 'multipart/form-data',
-          'Accept': 'text/plain',
-        },
-        body: jsonEncode(
-          <String, dynamic>{
-            "DocumentImage": imageValue,
-            "MiddleName": kycmiddlenameController.text,
-            "BloodGroup": seletedBloodId,
-            "UserId": UserId,
-            "WardName": kycwardnameController.text,
-            "City": kyccitynameController.text,
-            "Name": kycfirstnameController.text,
-            "StateId": selectedStateId,
-            "IdCardNo": kycidCardNoController.text,
-            "PalikaName": kycpalicaNameController.text,
-            "DocumentTypeId": selectedDocumentId,
-            "Country": kyccountrynameController.text,
-            "DOB": kycdobController.text,
-            "PhoneNumber": "+977${kycphoneController.text}",
-            "PalicaTypeId": selectedPalicaId,
-            "Surname": kycsurnameCOntroller.text,
-            "GenderId": selectedGenderId,
-            "WardNo": kycwardnoController.text
-          },
-        ));
-    Logger().e(response.body);
+    // final response = await http.put(
+    //     Uri.parse(
+    //         "https://hedgehog-ready-daily.ngrok-free.app/api/app/user-management"),
+    //     headers: <String, String>{
+    //       'Content-Type': 'application/json',
+    //       'Accept': 'text/plain',
+    //     },
+    //     body: jsonEncode(
+    //       <String, dynamic>{
+    //         "DocumentImage": imageValue.toString(),
+    //         "MiddleName": kycmiddlenameController.text,
+    //         "BloodGroup": seletedBloodId,
+    //         "UserId": UserId,
+    //         "WardName": kycwardnameController.text,
+    //         "City": kyccitynameController.text,
+    //         "Name": kycfirstnameController.text,
+    //         "StateId": selectedStateId,
+    //         "IdCardNo": kycidCardNoController.text,
+    //         "PalikaName": kycpalicaNameController.text,
+    //         "DocumentTypeId": selectedDocumentId,
+    //         "Country": kyccountrynameController.text,
+    //         "DOB": kycdobController.text,
+    //         "PhoneNumber": "+977${kycphoneController.text}",
+    //         "PalikaTypeId": selectedPalicaId,
+    //         "Surname": kycsurnameCOntroller.text,
+    //         "GenderId": selectedGenderId,
+    //         "WardNo": int.parse(kycwardnoController.text)
+    //       },
+    //     ));
+    // Logger().e("RESPONSE OF KYC PAGE IS");
+    // Logger().e(response.body);
   }
+
+  Future<void> asyncFileUpload(XFile file) async {
+    //create multipart request for POST or PATCH method
+    var request = http.MultipartRequest(
+      "PUT",
+      Uri.parse(
+          "https://hedgehog-ready-daily.ngrok-free.app/api/app/user-management"),
+    );
+    //add text fields
+    request.fields['MiddleName'] = kycmiddlenameController.text;
+    request.fields['BloodGroup'] = seletedBloodId;
+    request.fields['UserId'] = UserId;
+    request.fields['WardName'] = kycwardnameController.text;
+    request.fields['City'] = kyccitynameController.text;
+    request.fields['Name'] = kycfirstnameController.text;
+    request.fields['StateId'] = selectedStateId;
+    request.fields['IdCardNo'] = kycidCardNoController.text;
+    request.fields['PalikaName'] = kycpalicaNameController.text;
+    request.fields['DocumentTypeId'] = selectedDocumentId;
+    request.fields['Country'] = kyccountrynameController.text;
+    request.fields['DOB'] = kycdobController.text;
+    request.fields['PhoneNumber'] = "+977${kycphoneController.text}";
+    request.fields['PalikaTypeId'] = selectedPalicaId;
+    request.fields['Surname'] = kycsurnameCOntroller.text;
+    request.fields['GenderId'] = selectedGenderId;
+    request.fields['WardNo'] = kycwardnoController.text;
+
+    //create multipart using filepath, string or bytes
+    var pic = await http.MultipartFile.fromPath("DocumentImage", file.path);
+    //add multipart to request
+    request.files.add(pic);
+    var response = await request.send();
+
+    //Get the response from the server
+    var responseData = await response.stream.toBytes();
+    var responseString = String.fromCharCodes(responseData);
+    print(responseString);
+  }
+  // Future<void> postKyc() async {
+  //   Logger().e("Kyc button is pressed");
+  //   //Logger().e("Blood Id=$selectedBloodId")
+  //   var request = http.MultipartRequest(
+  //     'PUT',
+  //     Uri.parse(
+  //         "https://hedgehog-ready-daily.ngrok-free.app/api/app/user-management"),
+  //   );
+
+  //   // Add fields to the request
+  //   request.fields['DocumentImage'] = imageValue;
+  //   request.fields['MiddleName'] = kycmiddlenameController.text;
+  //   request.fields['BloodGroup'] = seletedBloodId;
+  //   request.fields['UserId'] = UserId;
+  //   request.fields['WardName'] = kycwardnameController.text;
+  //   request.fields['City'] = kyccitynameController.text;
+  //   request.fields['Name'] = kycfirstnameController.text;
+  //   request.fields['StateId'] = selectedStateId;
+  //   request.fields['IdCardNo'] = kycidCardNoController.text;
+  //   request.fields['PalikaName'] = kycpalicaNameController.text;
+  //   request.fields['DocumentTypeId'] = selectedDocumentId;
+  //   request.fields['Country'] = kyccountrynameController.text;
+  //   request.fields['DOB'] = kycdobController.text;
+  //   request.fields['PhoneNumber'] = "+977${kycphoneController.text}";
+  //   request.fields['PalikaTypeId'] = selectedPalicaId;
+  //   request.fields['Surname'] = kycsurnameCOntroller.text;
+  //   request.fields['GenderId'] = selectedGenderId;
+  //   request.fields['WardNo'] = kycwardnoController.text;
+
+  //   try {
+  //     var response = await request.send();
+  //     if (response.statusCode == 200) {
+  //       var responseBody = await response.stream.bytesToString();
+  //       Logger().e("RESPONSE OF KYC PAGE IS");
+  //       print(responseBody);
+  //     } else {
+  //       Logger().e("Failed to post KYC. Status code: ${response.statusCode}");
+  //       print(await response.stream.bytesToString());
+  //     }
+  //   } catch (error) {
+  //     Logger().e("Error during KYC request: $error");
+  //   }
+  // }
 
   KycUpdate({super.key});
   final kycfirstnameController = TextEditingController();
@@ -129,12 +211,12 @@ class KycUpdate extends StatelessWidget {
                       textController: kycphoneController,
                       textInputType: TextInputType.number,
                       validate: ((value) {
-                        final numberRegex = RegExp(r'^[0-9]{10}$');
-                        // RegExp(
-                        //     r"^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]+$");
-                        if (!numberRegex.hasMatch(value.toString())) {
-                          return "Please Enter valid number";
-                        }
+                        // final numberRegex = RegExp(r'^[0-9]{10}$');
+                        // // RegExp(
+                        // //     r"^[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]+$");
+                        // if (!numberRegex.hasMatch(value.toString())) {
+                        //   return "Please Enter valid number";
+                        // }
                         return null;
                       }),
                     ),
@@ -185,10 +267,10 @@ class KycUpdate extends StatelessWidget {
                       hintText: "WardNo",
                       textController: kycwardnoController,
                       validate: ((value) {
-                        final nameRegex = RegExp(r'^[0-9]$');
-                        if (!nameRegex.hasMatch(value.toString())) {
-                          return "Enter Your Correct ward Number";
-                        }
+                        // final nameRegex = RegExp(r'^[0-9]$');
+                        // if (!nameRegex.hasMatch(value.toString())) {
+                        //   return "Enter Your Correct ward Number";
+                        // }
                         return null;
                       }),
                     ),
@@ -227,7 +309,7 @@ class KycUpdate extends StatelessWidget {
                     const SizedBox(height: 20.0),
                     CustomTextFormField(
                       hintText: "Country Name",
-                      textController: kyccitynameController,
+                      textController: kyccountrynameController,
                       validate: ((value) {
                         final nameRegex = RegExp(
                             r"^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$");
@@ -253,9 +335,15 @@ class KycUpdate extends StatelessWidget {
                               color: Colors.blue.shade300,
                             ),
                             child: TextButton(
-                              onPressed: () {
+                              onPressed: () async {
                                 if (kycformkey.currentState!.validate()) {
-                                  postKyc();
+                                  // postKyc();
+                                  await asyncFileUpload(image!)
+                                      .whenComplete(() {
+                                    customSnackbar(context,
+                                        "Successfully Updated KYc form");
+                                    Navigator.pop(context);
+                                  });
                                 }
                               },
                               child: const Padding(

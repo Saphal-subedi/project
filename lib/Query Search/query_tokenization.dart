@@ -1,12 +1,46 @@
-import 'package:logger/logger.dart';
-
 List<String> words = [];
 
 double? birthindex, marriageindex, deathindex;
 void queryTokenize(String sentence) {
-  List<String> birth = ["BIRTH", "REGISTRATION", "JANMA", "DARTA"];
-  List<String> death = ["DEATH", "REGISTRATION", "MRITU", "DARTA"];
-  List<String> marriage = ["MARRIAGE", "REGISTRATION", "BIBAHA", "DARTA"];
+  List<String> birth = [
+    "BIRTH",
+    "REGISTRATION",
+    "JANMA",
+    "DARTA",
+    "BABY",
+    "CHILD",
+    "NEWBORN",
+    "INFANT",
+    "CHILDBIRTH",
+    "CERTIFICATE",
+    "RECORD"
+  ];
+  List<String> death = [
+    "DEATH",
+    "REGISTRATION",
+    "MRITYU",
+    "DARTA",
+    "CERTIFICATE",
+    "DEPARTED",
+    "PASSINGAWAY",
+    "FUNERAL",
+    "RECORD",
+    "DECEASED",
+    "BURIAL"
+  ];
+  List<String> marriage = [
+    "MARRIAGE",
+    "REGISTRATION",
+    "BIBAHA",
+    "DARTA",
+    "CERTIFICATE",
+    "RECORD",
+    "WEDDING",
+    "MARITAL",
+    "SPOUSAL",
+    "MATRIMONY",
+    "RELATION"
+  ];
   words = [];
   String currentWord = '';
 
@@ -26,7 +60,7 @@ void queryTokenize(String sentence) {
   if (currentWord.isNotEmpty) {
     words.add(currentWord);
   }
-  Logger().e(words);
+
   birthindex = birthValue(words, birth);
   deathindex = deathvalue(words, death);
   marriageindex = marriagevalue(words, marriage);

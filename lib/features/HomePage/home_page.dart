@@ -39,7 +39,10 @@ class _NewHomePageState extends State<NewHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFF24293E),
       appBar: AppBar(
+        backgroundColor: Color(0xFF24293E),
+        primary: true,
         actions: [
           Padding(
             padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
@@ -53,7 +56,7 @@ class _NewHomePageState extends State<NewHomePage> {
                   child: const Text(
                     'Kyc Update',
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Color(0xFFF4F5FC),
                     ),
                   ),
                 ),
@@ -72,11 +75,11 @@ class _NewHomePageState extends State<NewHomePage> {
             ),
           ),
         ],
-        title: Text(AppLocalizations.of(context)!.name),
-        centerTitle: true,
-        flexibleSpace: Container(
-          decoration: BoxDecoration(color: Colors.blue.shade300),
-        ),
+        // title: Text(AppLocalizations.of(context)!.name),
+        // centerTitle: true,
+        // flexibleSpace: Container(
+        //   decoration: BoxDecoration(color: Colors.blue.shade300),
+        // ),
       ),
       body: const SafeArea(
         child: SingleChildScrollView(

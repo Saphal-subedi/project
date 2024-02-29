@@ -225,6 +225,7 @@ class BirthPage extends StatelessWidget {
                                   Colors.blue.shade200),
                             ),
                             onPressed: () {
+                              Logger().e(UserId);
                               if (birthformkey.currentState!.validate()) {
                                 postData().whenComplete(() {
                                   if (birthregistersuccess == true) {
@@ -239,7 +240,8 @@ class BirthPage extends StatelessWidget {
                                         birthfathersurnameCOntroller.text,
                                         birthmotherfirstnameController.text,
                                         birthmothermiddlenameController.text,
-                                        birthmothersurnameCOntroller.text);
+                                        birthmothersurnameCOntroller.text,
+                                        selectedGenderValue);
                                   } else {
                                     customSnackbar(context,
                                         "Something went wrong Please try again");
@@ -278,7 +280,8 @@ Future<void> generatepdf(
     @required fatherlastname,
     @required motherfirstname,
     @required mothermiddlename,
-    @required motherlastname) async {
+    @required motherlastname,
+    @required gendertype) async {
   final logo = (await rootBundle.load("assets/images/digitalgaue.png"))
       .buffer
       .asUint8List();
@@ -304,7 +307,7 @@ Future<void> generatepdf(
                         fontWeight: pw.FontWeight.bold, fontSize: 14)),
                 pw.Text("Birth Regristration",
                     style: pw.TextStyle(
-                        fontWeight: pw.FontWeight.bold, fontSize: 14))
+                        fontWeight: pw.FontWeight.bold, fontSize: 25))
               ])
             ]),
             pw.SizedBox(height: 40.0),
@@ -392,6 +395,28 @@ Future<void> generatepdf(
                         padding: const pw.EdgeInsets.symmetric(
                             horizontal: 50, vertical: 5),
                         child: pw.Text(birthdate))
+                  ],
+                ),
+              ]),
+            ]),
+            pw.SizedBox(height: 20.0),
+            pw.Row(children: [
+              //BS
+              pw.Text(
+                "Gender Type : ",
+                style: pw.TextStyle(
+                  fontSize: 14.0,
+                  fontWeight: pw.FontWeight.bold,
+                ),
+              ),
+              pw.SizedBox(width: 20),
+              pw.Table(border: pw.TableBorder.all(), children: [
+                pw.TableRow(
+                  children: [
+                    pw.Padding(
+                        padding: const pw.EdgeInsets.symmetric(
+                            horizontal: 50, vertical: 5),
+                        child: pw.Text(gendertype))
                   ],
                 ),
               ]),
