@@ -65,7 +65,7 @@ class KycUpdate extends StatelessWidget {
           "https://hedgehog-ready-daily.ngrok-free.app/api/app/user-management"),
     );
     //add text fields
-    request.fields['MiddleName'] = kycmiddlenameController.text;
+    request.fields['MiddleName'] = kycmiddlenameController.text ?? "";
     request.fields['BloodGroup'] = seletedBloodId;
     request.fields['UserId'] = UserId;
     request.fields['WardName'] = kycwardnameController.text;
@@ -344,6 +344,9 @@ class KycUpdate extends StatelessWidget {
                                         "Successfully Updated KYc form");
                                     Navigator.pop(context);
                                   });
+                                } else {
+                                  customSnackbar(context,
+                                      "Somthing is missing in the form");
                                 }
                               },
                               child: const Padding(

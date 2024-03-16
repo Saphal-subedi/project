@@ -54,9 +54,7 @@ class _DetailsPageState extends State<DetailsPage> {
             return Center(child: Text("No data available"));
           } else {
             String imgsrc = snapshot.data!.documentImage!;
-            var bytes = decodeBase64Image(imgsrc!);
 
-            Logger().e("------pode $bytes");
             return SingleChildScrollView(
               scrollDirection: Axis.vertical,
               child: Column(
@@ -85,7 +83,8 @@ class _DetailsPageState extends State<DetailsPage> {
                   _buildDetailRow('Gender', snapshot.data!.gender),
                   _buildDetailRow('Role Name', snapshot.data!.roleName),
                   SizedBox(height: 20),
-                  _buildDocumentImage(snapshot.data!.documentImage),
+                  DecodedImage(
+                      imageResponse: '${snapshot.data!.documentImage}'),
                   Row(
                     children: [
                       Spacer(),
@@ -185,26 +184,6 @@ class _DetailsPageState extends State<DetailsPage> {
         ),
       ),
     );
-  }
-
-  Widget _buildDocumentImage(String? base64String) {
-    if (base64String != null) {
-      try {
-        Uint8List bytes = base64.decode(base64String.split(',')[1]);
-        return Container(
-          margin: EdgeInsets.only(top: 20),
-          child: Image.memory(
-            bytes,
-            width: 300,
-            height: 300,
-            fit: BoxFit.contain,
-          ),
-        );
-      } catch (e) {
-        print('Error decoding image: $e');
-      }
-    }
-    return SizedBox.shrink();
   }
 
   Future<void> RejectUser(String id) async {
@@ -334,12 +313,22 @@ class UserKycDetails {
   }
 }
 
-Uint8List decodeBase64Image(String base64String) {
-  int commaIndex = base64String.indexOf(',');
+class DecodedImage extends StatelessWidget {
+  final String imageResponse;
 
-  // Extract and decode the base64 string
-  String encodedString = base64String.substring(commaIndex + 1);
-  Uint8List decodedBytes = base64.decode(encodedString);
+  DecodedImage({required this.imageResponse});
 
-  return decodedBytes;
+  @override
+  Widget build(BuildContext context) {
+    //  Uint8List bytes = base64.decode(imageResponse.split(',').last);
+    Uint8List bytes = base64Decode(imageResponse);
+    return Container(
+      height: 100.0,
+      width: 100.0,
+      child: Image(
+        image: MemoryImage(bytes),
+        fit: BoxFit.fill,
+      ),
+    );
+  }
 }

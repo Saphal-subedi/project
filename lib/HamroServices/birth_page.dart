@@ -11,7 +11,6 @@ import 'package:e_woda/Kyc%20Update/RelationGroup/relationtype_page.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_gen/gen_l10n/app_localization.dart';
 import 'package:logger/logger.dart';
 import 'package:open_file_plus/open_file_plus.dart';
 import 'package:pdf/widgets.dart' as pw;
@@ -52,16 +51,16 @@ class BirthPage extends StatelessWidget {
         body: jsonEncode(
           <String, dynamic>{
             "childFirstName": birthfirstnameController.text,
-            "childMiddleName": birthmiddlenameController.text,
+            "childMiddleName": birthmiddlenameController.text ?? "",
             "childLastName": birthsurnameController.text,
             "birthDate": birthdateController.text,
             "placeOfBirth": birthplaceController.text,
             "genderId": selectedGenderId,
             "fatherFirstName": birthfatherfirstnameController.text,
-            "fatherMiddleName": birthfathermiddlenameController.text,
+            "fatherMiddleName": birthfathermiddlenameController.text ?? "",
             "fatherLastName": birthfathersurnameCOntroller.text,
             "motherFirstName": birthmotherfirstnameController.text,
-            "motherMiddleName": birthmothermiddlenameController.text,
+            "motherMiddleName": birthmothermiddlenameController.text ?? "",
             "motherLastName": birthmothersurnameCOntroller.text,
             "relationId": selectedRelationId,
             "userId": UserId
@@ -231,15 +230,17 @@ class BirthPage extends StatelessWidget {
                                   if (birthregistersuccess == true) {
                                     generatepdf(
                                         birthfirstnameController.text,
-                                        birthmiddlenameController.text,
+                                        birthmiddlenameController.text ?? "",
                                         birthsurnameController.text,
                                         birthdateController.text,
                                         birthplaceController.text,
-                                        birthfatherfirstnameController.text,
+                                        birthfatherfirstnameController.text ??
+                                            "",
                                         birthfathermiddlenameController.text,
                                         birthfathersurnameCOntroller.text,
                                         birthmotherfirstnameController.text,
-                                        birthmothermiddlenameController.text,
+                                        birthmothermiddlenameController.text ??
+                                            "",
                                         birthmothersurnameCOntroller.text,
                                         selectedGenderValue);
                                   } else {

@@ -24,6 +24,7 @@ class _AdminBirthState extends State<AdminBirth> {
   Future<List<GetBirth>> getBirth() async {
     final response = await http.get(Uri.parse(getbirthurl));
     final body = jsonDecode(response.body);
+    Logger().e("Birth Response is-------------- $body");
 
     List items = body['data']['items'];
     TotalItem = body['data']['totalCount'];
@@ -59,7 +60,7 @@ class _AdminBirthState extends State<AdminBirth> {
           } else if (snapshot.hasError) {
             return Center(child: Text("Error: ${snapshot.error}"));
           } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return Center(child: Text("No data available"));
+            return Center(child: Text("No data available "));
           } else {
             return SingleChildScrollView(
               scrollDirection: Axis.horizontal,
@@ -84,7 +85,7 @@ class _AdminBirthState extends State<AdminBirth> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => DetailsBirthPage(data: data),
+                          builder: (context) => DetailsBirthPage(dataa: data),
                         ),
                       );
                     },

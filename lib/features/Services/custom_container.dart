@@ -30,7 +30,7 @@ class CustomImageTitleServices extends StatelessWidget {
               children: [
                 SizedBox(
                   height: 0.11 * height,
-                  width: 0.20 * width,
+                  width: 0.30 * width,
                   child: Center(
                     child: Image.asset(
                       servicesString[index].images,

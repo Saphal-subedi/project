@@ -22,10 +22,12 @@ class _QuerySearcherState extends State<QuerySearcher> {
           TextField(
             maxLines: 3,
             controller: queryController,
+            style: TextStyle(color: Colors.white),
             decoration: InputDecoration(
               filled: true,
               fillColor: Color(0xFF39415D),
               hintText: 'Search Your Query Here',
+              hintStyle: TextStyle(color: Colors.green),
               border: OutlineInputBorder(
                 borderSide: const BorderSide(
                   color: Colors.black, // Border color
