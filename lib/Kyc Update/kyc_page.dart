@@ -57,7 +57,7 @@ class KycUpdate extends StatelessWidget {
     // Logger().e(response.body);
   }
 
-  Future<void> asyncFileUpload(XFile file) async {
+  Future<String> asyncFileUpload(XFile file) async {
     //create multipart request for POST or PATCH method
     var request = http.MultipartRequest(
       "PUT",
@@ -92,7 +92,7 @@ class KycUpdate extends StatelessWidget {
     //Get the response from the server
     var responseData = await response.stream.toBytes();
     var responseString = String.fromCharCodes(responseData);
-    print(responseString);
+    return responseString.toString();
   }
   // Future<void> postKyc() async {
   //   Logger().e("Kyc button is pressed");
@@ -338,15 +338,16 @@ class KycUpdate extends StatelessWidget {
                               onPressed: () async {
                                 if (kycformkey.currentState!.validate()) {
                                   // postKyc();
-                                  await asyncFileUpload(image!)
-                                      .whenComplete(() {
-                                    customSnackbar(context,
-                                        "Successfully Updated KYc form");
-                                    Navigator.pop(context);
-                                  });
-                                } else {
-                                  customSnackbar(context,
-                                      "Somthing is missing in the form");
+                                  String error = await asyncFileUpload(image!);
+                                  customSnackbar(context, error);
+                                  //       .whenComplete(() {
+                                  //     customSnackbar(context,
+                                  //         "Successfully Updated KYc form");
+                                  //     Navigator.pop(context);
+                                  //   });
+                                  // } else {
+                                  //   customSnackbar(context,
+                                  //       "Somthing is missing in the form");
                                 }
                               },
                               child: const Padding(

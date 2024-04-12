@@ -8,8 +8,8 @@ import 'package:e_woda/SuperAdminPage/admin_userinfo.dart';
 import 'package:e_woda/features/authentication/User%20Login%20Page/login_user_page.dart';
 import 'package:flutter/material.dart';
 
-class SuperAdminPage extends StatelessWidget {
-  const SuperAdminPage({super.key});
+class PendingStatusPage extends StatelessWidget {
+  const PendingStatusPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,7 @@ class SuperAdminPage extends StatelessWidget {
           ),
         ],
         title: const Text(
-          "Admin Home Page",
+          "Pending Status Page",
           style: TextStyle(color: Colors.white),
         ),
         centerTitle: true,
@@ -96,12 +96,12 @@ class SuperAdminPage extends StatelessWidget {
                   const Spacer(),
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => AdminKyc(),
-                        ),
-                      );
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (context) => AdminKyc(),
+                      //   ),
+                      // );
                     },
                     child: Card(
                       color: Colors.blue.shade300,
@@ -125,7 +125,7 @@ class SuperAdminPage extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                "Kyc Details",
+                                "Pending Status",
                                 style: TextStyle(
                                     color: Colors.white, fontSize: 18.0),
                               ),
@@ -218,138 +218,6 @@ class SuperAdminPage extends StatelessWidget {
                                 "Invite Admin",
                                 style: TextStyle(
                                     color: Colors.white, fontSize: 18.0),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Row(
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const AdminBirth(),
-                        ),
-                      );
-                    },
-                    child: Card(
-                      color: Colors.blue.shade300,
-                      margin: const EdgeInsets.all(5),
-                      child: SizedBox(
-                        height: height * 0.25,
-                        width: widhth * 0.29,
-                        child: Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              SizedBox(
-                                height: 75,
-                                width: 75,
-                                child: Center(
-                                  child: Image.asset(
-                                    "assets/images/birth-regristration.png",
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
-                              Text(
-                                "Birth",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 15.0),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  const Spacer(),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => AdminMarriage(),
-                        ),
-                      );
-                    },
-                    child: Card(
-                      color: Colors.blue.shade300,
-                      margin: const EdgeInsets.all(5),
-                      child: SizedBox(
-                        height: height * 0.25,
-                        width: widhth * 0.29,
-                        child: Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              SizedBox(
-                                height: 75,
-                                width: 75,
-                                child: Center(
-                                  child: Image.asset(
-                                    "assets/images/marriage-registration.png",
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
-                              Text(
-                                "Marriage",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 15.0),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  const Spacer(),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const AdminDeath(),
-                        ),
-                      );
-                    },
-                    child: Card(
-                      color: Colors.blue.shade300,
-                      margin: const EdgeInsets.all(5),
-                      child: SizedBox(
-                        height: height * 0.25,
-                        width: widhth * 0.29,
-                        child: Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              SizedBox(
-                                height: 75,
-                                width: 75,
-                                child: Center(
-                                  child: Image.asset(
-                                    "assets/images/death-registration.png",
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
-                              Text(
-                                "Death",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 15.0),
                               ),
                             ],
                           ),

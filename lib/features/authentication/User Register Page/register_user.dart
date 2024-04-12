@@ -15,6 +15,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class RegisterUser extends StatelessWidget {
+  var success = false;
   RegisterUser({super.key});
   final firstnameController = TextEditingController();
   final middlenameController = TextEditingController();
@@ -25,7 +26,7 @@ class RegisterUser extends StatelessWidget {
   final phoneController = TextEditingController();
   final formkey = GlobalKey<FormState>();
 
-  Future<bool> postData() async {
+  Future<String> postData() async {
     try {
       final response = await http.post(
           Uri.parse(
@@ -45,10 +46,16 @@ class RegisterUser extends StatelessWidget {
               "surname": surnameCOntroller.text
             },
           ));
+      final body = jsonDecode(response.body);
+      final isSuccess = body['success'];
+      success = isSuccess;
+      if (success == false) {
+        return body['errors'].toString();
+      }
 
-      return true;
+      return "User Created Successfully ";
     } catch (e) {
-      return false;
+      return e.toString();
     }
   }
 
@@ -100,6 +107,10 @@ class RegisterUser extends StatelessWidget {
                   obsecureText: true,
                   textInputType: TextInputType.visiblePassword,
                   validate: ((value) {
+                    final passwordRegex = RegExp(
+                        r'^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[!@#$%^&*()_+{}|:"<>?]).{8,}$');
+                    if (!passwordRegex.hasMatch(value.toString()))
+                      return "Password must contain capital letter,numbers and\n special letter and length must be at least 8";
                     return null;
                   }),
                 ),
@@ -166,17 +177,12 @@ class RegisterUser extends StatelessWidget {
                           onPressed: (() async {
                             if (formkey.currentState!.validate()) {
                               var success = await postData();
-                              Logger().e("The result is $success");
-                              if (success) {
-                                customSnackbar(context, "Register Successful");
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => LoginUser()));
-                              } else {
-                                customSnackbar(
-                                    context, "Not registered try again");
-                              }
+                              customSnackbar(context, success);
+
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => LoginUser()));
                             }
                           }),
                           child: Padding(

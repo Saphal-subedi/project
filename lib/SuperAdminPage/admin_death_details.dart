@@ -33,55 +33,55 @@ class DetailsDeathPage extends StatelessWidget {
               SizedBox(height: 10.0),
               Text("Death Time:-${data.deathTime}"),
               SizedBox(height: 10.0),
-              Row(
-                children: [
-                  Spacer(),
-                  Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black), // Add border
-                      borderRadius: BorderRadius.circular(
-                          8), // Optional: Add border radius
-                      color: Colors.green, // Change background color
-                    ),
-                    child: TextButton(
-                      onPressed: () {},
-                      child: Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: Text(
-                          "Accept",
-                          style: TextStyle(
-                              color:
-                                  Colors.white), // Optional: Change text color
-                        ),
-                      ),
-                    ),
-                  ),
-                  Spacer(),
-                  Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black), // Add border
-                      borderRadius: BorderRadius.circular(
-                          8), // Optional: Add border radius
-                      color: Colors.red, // Change background color
-                    ),
-                    child: TextButton(
-                      onPressed: () {
-                        // Add onPressed functionality here
-                      },
-                      child: Padding(
-                        padding: EdgeInsets.all(20.0),
-                        child: Text(
-                          "Reject",
-                          style: TextStyle(
-                              color:
-                                  Colors.white), // Optional: Change text color
-                        ),
-                      ),
-                    ),
-                  ),
-                  Spacer(),
-                ],
-              ),
+              // Row(
+              //   children: [
+              //     Spacer(),
+              //     Container(
+              //       decoration: BoxDecoration(
+              //         border: Border.all(color: Colors.black), // Add border
+              //         borderRadius: BorderRadius.circular(
+              //             8), // Optional: Add border radius
+              //         color: Colors.green, // Change background color
+              //       ),
+              //       child: TextButton(
+              //         onPressed: () {},
+              //         child: Padding(
+              //           padding: const EdgeInsets.all(20.0),
+              //           child: Text(
+              //             "Accept",
+              //             style: TextStyle(
+              //                 color:
+              //                     Colors.white), // Optional: Change text color
+              //           ),
+              //         ),
+              //       ),
+              //     ),
+              //     Spacer(),
+              //     Container(
+              //       decoration: BoxDecoration(
+              //         border: Border.all(color: Colors.black), // Add border
+              //         borderRadius: BorderRadius.circular(
+              //             8), // Optional: Add border radius
+              //         color: Colors.red, // Change background color
+              //       ),
+              //       child: TextButton(
+              //         onPressed: () {
+              //           // Add onPressed functionality here
+              //         },
+              //         child: Padding(
+              //           padding: EdgeInsets.all(20.0),
+              //           child: Text(
+              //             "Reject",
+              //             style: TextStyle(
+              //                 color:
+              //                     Colors.white), // Optional: Change text color
+              //           ),
+              //         ),
+              //       ),
+              //     ),
+              //     Spacer(),
+              //   ],
+              // ),
             ],
           ),
         ),

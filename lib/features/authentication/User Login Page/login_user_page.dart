@@ -17,12 +17,22 @@ import '../User Register Page/register_user.dart';
 import 'package:http/http.dart' as http;
 
 var UserId;
+var UserStatus;
 
-class LoginUser extends StatelessWidget {
+class LoginUser extends StatefulWidget {
+  LoginUser({super.key});
+
+  @override
+  State<LoginUser> createState() => _LoginUserState();
+}
+
+class _LoginUserState extends State<LoginUser> {
+  bool _obscureText = true;
   var success = false;
+
   var userType = '';
 
-  Future<bool> postLogin() async {
+  Future<String> postLogin() async {
     try {
       final response = await http.post(Uri.parse(loginurl),
           headers: <String, String>{
@@ -37,21 +47,24 @@ class LoginUser extends StatelessWidget {
 
       final isSuccess = body['success'];
       success = isSuccess;
+      if (success == false) {
+        return body['errors'].toString();
+      }
 
       String user = body['data']['roleName'].toString();
       userType = user;
       UserId = body['data']['userId'];
 
-      return true;
+      return "Successfully login";
     } catch (e) {
-      return true;
+      return e.toString();
     }
   }
 
-  LoginUser({super.key});
-
   final emailController = TextEditingController();
+
   final passwordController = TextEditingController();
+
   final loginformkey = GlobalKey<FormState>();
 
   @override
@@ -81,13 +94,31 @@ class LoginUser extends StatelessWidget {
                   hintText: "UserName or UserEmail",
                   textController: emailController),
               const SizedBox(height: 30.0),
-              CustomTextFormField(
-                  validate: ((value) {
-                    return null;
-                  }),
-                  obsecureText: true,
+              // CustomTextFormField(
+              //     validate: ((value) {
+              //       return null;
+              //     }),
+              //     showPassword: true,
+              //     obsecureText: true,
+              //     hintText: AppLocalizations.of(context)!.userPassword,
+              //     textController: passwordController),
+              // const SizedBox(height: 30.0),
+              TextFormField(
+                controller: passwordController,
+                obscureText: _obscureText,
+                decoration: InputDecoration(
                   hintText: AppLocalizations.of(context)!.userPassword,
-                  textController: passwordController),
+                  suffixIcon: IconButton(
+                      icon: Icon(_obscureText
+                          ? Icons.visibility
+                          : Icons.visibility_off),
+                      onPressed: () {
+                        setState(() {
+                          _obscureText = !_obscureText;
+                        });
+                      }),
+                ),
+              ),
               const SizedBox(height: 30.0),
               Row(
                 children: [
@@ -99,34 +130,34 @@ class LoginUser extends StatelessWidget {
                       ),
                       child: TextButton(
                         onPressed: (() async {
-                          bool? funCompleted;
+                          String funCompleted = "";
                           if (loginformkey.currentState?.validate() ?? false) {
                             funCompleted = await postLogin();
                           }
+                          if (funCompleted == null) {
+                            customSnackbar(context, "Successfully Login");
+                          } else {
+                            customSnackbar(context, funCompleted);
+                          }
 
-                          if (funCompleted!) {
-                            if (success) {
-                              if (userType == "admin") {
-                                Navigator.pop(context);
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        const SuperAdminPage(),
-                                  ),
-                                );
-                              } else {
-                                Navigator.pop(context);
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const NewHomePage(),
-                                  ),
-                                );
-                              }
+                          if (success) {
+                            if (userType == "admin") {
+                              Navigator.pop(context);
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const SuperAdminPage(),
+                                ),
+                              );
                             } else {
-                              customSnackbar(context,
-                                  "Sorry something went wrong try again");
+                              Logger().e("User id is $UserId");
+                              Navigator.pop(context);
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const NewHomePage(),
+                                ),
+                              );
                             }
                           }
                         }),

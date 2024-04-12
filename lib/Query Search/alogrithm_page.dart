@@ -27,7 +27,7 @@ class _QuerySearcherState extends State<QuerySearcher> {
               filled: true,
               fillColor: Color(0xFF39415D),
               hintText: 'Search Your Query Here',
-              hintStyle: TextStyle(color: Colors.green),
+              hintStyle: TextStyle(color: Colors.white),
               border: OutlineInputBorder(
                 borderSide: const BorderSide(
                   color: Colors.black, // Border color

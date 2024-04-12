@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CustomTextFormField extends StatelessWidget {
+class CustomTextFormField extends StatefulWidget {
   const CustomTextFormField({
     super.key,
     this.obsecureText,
@@ -8,6 +8,7 @@ class CustomTextFormField extends StatelessWidget {
     required this.textController,
     this.validate,
     this.textInputType,
+    this.showPassword = false,
   });
 
   final String hintText;
@@ -15,16 +16,24 @@ class CustomTextFormField extends StatelessWidget {
   final bool? obsecureText;
   final String? Function(String?)? validate;
   final TextInputType? textInputType;
+  final bool showPassword;
+
+  @override
+  State<CustomTextFormField> createState() => _CustomTextFormFieldState();
+}
+
+class _CustomTextFormFieldState extends State<CustomTextFormField> {
+  bool _obscureText = true;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      keyboardType: textInputType ?? TextInputType.text,
-      controller: textController,
-      obscureText: obsecureText ?? false,
+      keyboardType: widget.textInputType ?? TextInputType.text,
+      controller: widget.textController,
+      obscureText: widget.obsecureText ?? false,
       decoration: InputDecoration(
-        label: Text(hintText),
-        hintText: hintText,
+        label: Text(widget.hintText),
+        hintText: widget.hintText,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
         ),
@@ -32,7 +41,7 @@ class CustomTextFormField extends StatelessWidget {
             OutlineInputBorder(borderRadius: BorderRadius.circular(15.0)),
       ),
 
-      validator: validate,
+      validator: widget.validate,
 
       // onChanged: onChanged,
     );

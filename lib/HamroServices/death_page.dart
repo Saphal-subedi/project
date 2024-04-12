@@ -16,6 +16,7 @@ import '../Kyc Update/RelationGroup/relationtype_page.dart';
 import 'package:http/http.dart' as http;
 
 import '../features/authentication/User Login Page/login_user_page.dart';
+import 'KYC_Status.dart';
 
 class DeathPage extends StatefulWidget {
   const DeathPage({super.key});
@@ -25,6 +26,11 @@ class DeathPage extends StatefulWidget {
 }
 
 class _DeathPageState extends State<DeathPage> {
+  void initState() {
+    super.initState();
+    checkStatus();
+  }
+
   final deathformkey = GlobalKey<FormState>();
   final deathbirthController = TextEditingController();
   final deathplaceofdeathController = TextEditingController();
@@ -68,143 +74,164 @@ class _DeathPageState extends State<DeathPage> {
             preferredSize: const Size.fromHeight(60.0),
             child: NavigateAppBar(title: "Death Register Page")),
         body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Form(
-              key: deathformkey,
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const SizedBox(height: 30.0),
-                    CustomTextFormField(
-                      hintText: "Date ofBirth in yy-mm-dd format",
-                      textController: deathbirthController,
-                      validate: ((value) {
-                        return null;
-                      }),
-                    ),
-                    const SizedBox(height: 30.0),
-                    Text("Select Gender Types"),
-                    GenderTypeDropDownButton(),
-                    SizedBox(height: 20.0),
-                    CustomTextFormField(
-                      hintText: "Place of Death",
-                      textController: deathplaceofdeathController,
-                      validate: ((value) {
-                        final nameRegex = RegExp(
-                            r"^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$");
-                        if (!nameRegex.hasMatch(value.toString())) {
-                          return "Deathplace cannot be null";
-                        }
-                        return null;
-                      }),
-                    ),
-                    const SizedBox(height: 30.0),
-                    CustomTextFormField(
-                      hintText: "Cause of death",
-                      textController: deathcauseController,
-                      validate: ((value) {
-                        final nameRegex = RegExp(
-                            r"^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$");
-                        if (!nameRegex.hasMatch(value.toString())) {
-                          return "Cause of death Cannot be null";
-                        }
-                        return null;
-                      }),
-                    ),
-                    const SizedBox(height: 30.0),
-                    CustomTextFormField(
-                      hintText: "Death date in yy-mm-dd format",
-                      textController: deathdateController,
-                      validate: ((value) {
-                        // final nameRegex = RegExp(
-                        //     r"^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$");
-                        // if (!nameRegex.hasMatch(value.toString())) {
-                        //   return AppLocalizations.of(context)!.usernamevalidate;
-                        // }
-                        return null;
-                      }),
-                    ),
-                    SizedBox(height: 30.0),
-                    const SizedBox(height: 20.0),
-                    CustomTextFormField(
-                      hintText: "Person First Name",
-                      textController: deathfirstnameController,
-                      validate: ((value) {
-                        final nameRegex = RegExp(
-                            r"^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$");
-                        if (!nameRegex.hasMatch(value.toString())) {
-                          return "Name cannot be null ";
-                        }
-                        return null;
-                      }),
-                    ),
-                    const SizedBox(height: 30.0),
-                    CustomTextFormField(
-                      hintText: "Person Middle Name",
-                      textController: deathmiddlenameController,
-                      validate: ((value) {
-                        return null;
-                      }),
-                    ),
-                    const SizedBox(height: 30.0),
-                    CustomTextFormField(
-                      hintText: "Person Last Name",
-                      textController: deathlastnameController,
-                      validate: ((value) {
-                        final nameRegex = RegExp(
-                            r"^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$");
-                        if (!nameRegex.hasMatch(value.toString())) {
-                          return "Surname cannot be empty";
-                        }
-                        return null;
-                      }),
-                    ),
-                    const SizedBox(height: 30.0),
-                    Text("Select Relation Type"),
-                    RelationDropDownButton(),
-                    SizedBox(height: 20.0),
-                    Row(
+          child: Column(
+            children: [
+              if (UserStatus == 'Pending')
+                Padding(
+                  padding: EdgeInsets.fromLTRB(10, 20, 0, 0),
+                  child: Text(
+                    'Kyc status is pending you cannot submit the form',
+                    style: TextStyle(color: Colors.red, fontSize: 15),
+                  ),
+                ),
+              if (UserStatus != 'Accepted' && UserStatus != "Pending")
+                Padding(
+                  padding: EdgeInsets.fromLTRB(10, 20, 0, 0),
+                  child: Text(
+                    'First fill the kyc update form',
+                    style: TextStyle(color: Colors.red, fontSize: 20),
+                  ),
+                ),
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Form(
+                  key: deathformkey,
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Spacer(),
-                        TextButton(
-                            style: ButtonStyle(
-                              backgroundColor: MaterialStatePropertyAll(
-                                  Colors.blue.shade200),
-                            ),
-                            onPressed: () {
-                              if (deathformkey.currentState!.validate()) {
-                                postData().whenComplete(() {
-                                  if (deathregistersuccess!) {
-                                    generatedeathpdf(
-                                        deathbirthController.text,
-                                        selectedGenderValue,
-                                        deathplaceofdeathController.text,
-                                        deathcauseController.text,
-                                        deathdateController.text,
-                                        deathfirstnameController.text,
-                                        deathmiddlenameController.text,
-                                        deathlastnameController.text);
-                                  } else {
-                                    customSnackbar(context,
-                                        "Something went wrong Please try again");
-                                  }
-                                });
-                              }
-                              ;
-                            },
-                            child: SizedBox(
-                                height: 50,
-                                child: Center(
-                                    child: Text(
-                                  "Death Register",
-                                  style: TextStyle(color: Colors.white),
-                                )))),
-                        Spacer(),
-                      ],
-                    ),
-                  ]),
-            ),
+                        const SizedBox(height: 30.0),
+                        CustomTextFormField(
+                          hintText: "Date ofBirth in yy-mm-dd format",
+                          textController: deathbirthController,
+                          validate: ((value) {
+                            return null;
+                          }),
+                        ),
+                        const SizedBox(height: 30.0),
+                        Text("Select Gender Types"),
+                        GenderTypeDropDownButton(),
+                        SizedBox(height: 20.0),
+                        CustomTextFormField(
+                          hintText: "Place of Death",
+                          textController: deathplaceofdeathController,
+                          validate: ((value) {
+                            final nameRegex = RegExp(
+                                r"^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$");
+                            if (!nameRegex.hasMatch(value.toString())) {
+                              return "Deathplace cannot be null";
+                            }
+                            return null;
+                          }),
+                        ),
+                        const SizedBox(height: 30.0),
+                        CustomTextFormField(
+                          hintText: "Cause of death",
+                          textController: deathcauseController,
+                          validate: ((value) {
+                            final nameRegex = RegExp(
+                                r"^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$");
+                            if (!nameRegex.hasMatch(value.toString())) {
+                              return "Cause of death Cannot be null";
+                            }
+                            return null;
+                          }),
+                        ),
+                        const SizedBox(height: 30.0),
+                        CustomTextFormField(
+                          hintText: "Death date in yy-mm-dd format",
+                          textController: deathdateController,
+                          validate: ((value) {
+                            // final nameRegex = RegExp(
+                            //     r"^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$");
+                            // if (!nameRegex.hasMatch(value.toString())) {
+                            //   return AppLocalizations.of(context)!.usernamevalidate;
+                            // }
+                            return null;
+                          }),
+                        ),
+                        SizedBox(height: 30.0),
+                        const SizedBox(height: 20.0),
+                        CustomTextFormField(
+                          hintText: "Person First Name",
+                          textController: deathfirstnameController,
+                          validate: ((value) {
+                            final nameRegex = RegExp(
+                                r"^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$");
+                            if (!nameRegex.hasMatch(value.toString())) {
+                              return "Name cannot be null ";
+                            }
+                            return null;
+                          }),
+                        ),
+                        const SizedBox(height: 30.0),
+                        CustomTextFormField(
+                          hintText: "Person Middle Name",
+                          textController: deathmiddlenameController,
+                          validate: ((value) {
+                            return null;
+                          }),
+                        ),
+                        const SizedBox(height: 30.0),
+                        CustomTextFormField(
+                          hintText: "Person Last Name",
+                          textController: deathlastnameController,
+                          validate: ((value) {
+                            final nameRegex = RegExp(
+                                r"^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$");
+                            if (!nameRegex.hasMatch(value.toString())) {
+                              return "Surname cannot be empty";
+                            }
+                            return null;
+                          }),
+                        ),
+                        const SizedBox(height: 30.0),
+                        Text("Select Relation Type"),
+                        RelationDropDownButton(),
+                        SizedBox(height: 20.0),
+                        if (UserStatus == "Accepted")
+                          Row(
+                            children: [
+                              Spacer(),
+                              TextButton(
+                                  style: ButtonStyle(
+                                    backgroundColor: MaterialStatePropertyAll(
+                                        Colors.blue.shade200),
+                                  ),
+                                  onPressed: () {
+                                    if (deathformkey.currentState!.validate()) {
+                                      postData().whenComplete(() {
+                                        if (deathregistersuccess!) {
+                                          generatedeathpdf(
+                                              deathbirthController.text,
+                                              selectedGenderValue,
+                                              deathplaceofdeathController.text,
+                                              deathcauseController.text,
+                                              deathdateController.text,
+                                              deathfirstnameController.text,
+                                              deathmiddlenameController.text,
+                                              deathlastnameController.text);
+                                        } else {
+                                          customSnackbar(context,
+                                              "Something went wrong Please try again");
+                                        }
+                                      });
+                                    }
+                                    ;
+                                  },
+                                  child: SizedBox(
+                                      height: 50,
+                                      child: Center(
+                                          child: Text(
+                                        "Death Register",
+                                        style: TextStyle(color: Colors.white),
+                                      )))),
+                              Spacer(),
+                            ],
+                          ),
+                      ]),
+                ),
+              ),
+            ],
           ),
         ));
   }

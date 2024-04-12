@@ -1,3 +1,4 @@
+import 'package:e_woda/Query%20Search/Jaccard_index_details.dart';
 import 'package:e_woda/Query%20Search/query_tokenization.dart';
 import 'package:flutter/material.dart';
 
@@ -31,24 +32,24 @@ class _QueryOutputState extends State<QueryOutput> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Text(
-                  "Birth index is $birthindex",
-                  style: const TextStyle(
-                    fontSize: 20.0,
-                  ),
-                ),
-                Text(
-                  "Marriage index is $marriageindex",
-                  style: const TextStyle(
-                    fontSize: 20.0,
-                  ),
-                ),
-                Text(
-                  "Death index is $deathindex",
-                  style: const TextStyle(
-                    fontSize: 20.0,
-                  ),
-                ),
+                // Text(
+                //   "Birth index is $birthindex",
+                //   style: const TextStyle(
+                //     fontSize: 20.0,
+                //   ),
+                // ),
+                // Text(
+                //   "Marriage index is $marriageindex",
+                //   style: const TextStyle(
+                //     fontSize: 20.0,
+                //   ),
+                // ),
+                // Text(
+                //   "Death index is $deathindex",
+                //   style: const TextStyle(
+                //     fontSize: 20.0,
+                //   ),
+                // ),
                 if (birthindex! > deathindex! && birthindex! > marriageindex!)
                   const Column(
                     children: [
@@ -243,6 +244,30 @@ class _QueryOutputState extends State<QueryOutput> {
               ],
             ),
           ),
+        ),
+      ),
+      floatingActionButton: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.horizontal(
+            left: Radius.circular(50.0), // Half of the width
+            right: Radius.circular(50.0), // Half of the width
+          ),
+          color: Colors.blue, // Change the color as needed
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: TextButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const JaccardIndexDetails()));
+              },
+              child: Text(
+                "Jaccard Index Details",
+                style:
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              )),
         ),
       ),
     );

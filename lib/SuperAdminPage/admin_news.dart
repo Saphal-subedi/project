@@ -154,7 +154,6 @@ class _AdminNewsState extends State<AdminNews> {
                           },
                           child: Text("Add"),
                         ),
-                        Spacer(),
                       ],
                     ),
                   ),
